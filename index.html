@@ -475,16 +475,16 @@
     </div>
     <div class="nav-item" onclick="show('ov-c1')">
       <span class="dot dot-green"></span>
-      Concept 1
+      Portfolio Monitoring
     </div>
     <div class="nav-item" onclick="show('ov-c2')">
       <span class="dot dot-blue"></span>
-      Concept 2
+      Market Intelligence
     </div>
   </div>
 
   <div class="nav-section">
-    <div class="nav-label">Concept 1</div>
+    <div class="nav-label">Portfolio Monitoring</div>
     <div class="nav-item" onclick="show('c1-dashboard')">
       <span class="dot dot-green"></span>
       Dashboard
@@ -505,7 +505,7 @@
   </div>
 
   <div class="nav-section">
-    <div class="nav-label">Concept 2</div>
+    <div class="nav-label">Market Intelligence</div>
     <div class="nav-item" onclick="show('c2-dashboard')">
       <span class="dot dot-blue"></span>
       Dashboard
@@ -536,29 +536,46 @@
        HOME
   ═════════════════════════════════ -->
   <div id="page-home" class="page active">
+
+    <!-- Hero -->
     <div class="home-hero">
       <div class="eyebrow">Venture prototypes · e-conomic / Visma</div>
-      <h2>Two ventures.<br>One data engine.</h2>
-      <p>Nordic private market intelligence — built on real ERP data from 250k+ companies. Two separate products, ICPs, and go-to-market motions.</p>
+      <h2>Two bets.<br>One data moat.</h2>
+      <p>Real financial data from 250k+ Nordic private companies — the same data that sits inside e-conomic today, unused. Two products, two ICPs, one shared advantage.</p>
       <div class="tag-row">
-        <div class="tag">Concept 2 first</div>
-        <div class="tag">Nordic M&amp;A</div>
+        <div class="tag" style="background:#fef3c7;color:#92400e;border-color:#fde68a;">▶ Market Intelligence first</div>
+        <div class="tag">Nordic M&A</div>
         <div class="tag">Growth Equity PE</div>
         <div class="tag">e-conomic data moat</div>
       </div>
     </div>
+
+    <!-- Concept cards -->
     <div class="concept-cards">
+
+      <!-- C1 -->
       <div class="concept-card" onclick="show('ov-c1')">
-        <div class="card-eyebrow eyebrow-green">Concept 1 · Portfolio Monitoring</div>
+        <div class="card-eyebrow eyebrow-green">Portfolio Monitoring</div>
         <h3>PE Dashboard</h3>
-        <p>End-to-end portfolio monitoring for Nordic growth equity and lower-mid-market PE funds. Automates the PortCo → PE → LP reporting flow, eliminates monthly review burden, surfaces early warnings before a month of reaction time is lost.</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;">
+        <p style="font-size:13px;line-height:1.7;color:#374151;margin-bottom:16px;">Imagine never chasing a portfolio company for numbers again. Live ERP data flows automatically into your dashboard — early warnings surface weeks before they become real problems, and your LP report writes itself.</p>
+
+        <!-- Mini flow -->
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:16px;padding:10px 14px;background:#f0fdf4;border-radius:8px;font-size:11px;">
+          <span style="font-weight:700;color:#14532d;background:white;padding:3px 8px;border-radius:5px;border:1px solid #bbf7d0;">🏭 PortCo</span>
+          <span style="color:#16a34a;font-weight:700;">→</span>
+          <span style="font-weight:700;color:#14532d;background:white;padding:3px 8px;border-radius:5px;border:1px solid #bbf7d0;">🏢 PE Fund</span>
+          <span style="color:#16a34a;font-weight:700;">→</span>
+          <span style="font-weight:700;color:#14532d;background:white;padding:3px 8px;border-radius:5px;border:1px solid #bbf7d0;">👔 LP</span>
+          <span style="margin-left:auto;font-size:10px;color:#16a34a;font-weight:700;">Auto · Live · No email</span>
+        </div>
+
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
           <div style="flex:1;background:#f9fafb;border-radius:7px;padding:10px 12px;">
             <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:4px;">Nordic SAM</div>
             <div style="font-size:16px;font-weight:800;">€14–29M</div>
           </div>
           <div style="flex:1;background:#f9fafb;border-radius:7px;padding:10px 12px;">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:4px;">Year-5 SOM base</div>
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:4px;">Year-5 SOM</div>
             <div style="font-size:16px;font-weight:800;">€3–5M ARR</div>
           </div>
           <div style="flex:1;background:#f9fafb;border-radius:7px;padding:10px 12px;">
@@ -566,22 +583,40 @@
             <div style="font-size:16px;font-weight:800;">€175–225k</div>
           </div>
         </div>
+
+        <div style="font-size:11px;color:var(--muted);margin-bottom:12px;padding:8px 10px;background:#fffbeb;border-radius:6px;border:1px solid #fde68a;">
+          ⚠ Gated on e-conomic overlap validation — run that experiment before building
+        </div>
+
         <div class="card-footer">
           <button class="btn-primary btn-green" onclick="event.stopPropagation();show('ov-c1')">Read brief →</button>
           <button class="btn-outline" onclick="event.stopPropagation();show('c1-dashboard')">Open prototype</button>
         </div>
       </div>
-      <div class="concept-card" onclick="show('ov-c2')">
-        <div class="card-eyebrow eyebrow-blue">Concept 2 · Market Intelligence <span style="font-size:10px;color:#d97706;font-weight:700;margin-left:6px;">▶ BUILD FIRST</span></div>
+
+      <!-- C2 -->
+      <div class="concept-card" onclick="show('ov-c2')" style="border-color:#2563eb;box-shadow:0 0 0 3px #dbeafe;">
+        <div class="card-eyebrow eyebrow-blue">Market Intelligence <span style="background:#fef3c7;color:#b45309;font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;margin-left:6px;">▶ BUILD FIRST</span></div>
         <h3>Nordic Pitch Pack</h3>
-        <p>Real revenue, EBITDA, growth and ownership data on 250k+ Nordic private companies. Pitch-ready data packs and peer benchmarks in 30 minutes instead of 2 days. The "Bloomberg for Nordic privates" — wedged at the pre-deal pitch stage.</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;">
+        <p style="font-size:13px;line-height:1.7;color:#374151;margin-bottom:16px;">Imagine walking into tomorrow's pitch meeting knowing exactly what a target earned last quarter — not what they told you, but what their own accounting system recorded. 30 minutes, not 2 days.</p>
+
+        <!-- Mini flow -->
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:16px;padding:10px 14px;background:#eff6ff;border-radius:8px;font-size:11px;">
+          <span style="font-weight:700;color:#1e3a5f;background:white;padding:3px 8px;border-radius:5px;border:1px solid #bfdbfe;">🎯 Target</span>
+          <span style="color:#2563eb;font-weight:700;">→</span>
+          <span style="font-weight:700;color:#1e3a5f;background:white;padding:3px 8px;border-radius:5px;border:1px solid #bfdbfe;">🔍 Screen</span>
+          <span style="color:#2563eb;font-weight:700;">→</span>
+          <span style="font-weight:700;color:#1e3a5f;background:white;padding:3px 8px;border-radius:5px;border:1px solid #bfdbfe;">📊 Pitch Pack</span>
+          <span style="margin-left:auto;font-size:10px;color:#2563eb;font-weight:700;">Real data · 30 min</span>
+        </div>
+
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
           <div style="flex:1;background:#eff6ff;border-radius:7px;padding:10px 12px;">
             <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#1d4ed8;margin-bottom:4px;">Nordic SAM</div>
             <div style="font-size:16px;font-weight:800;">€21–40M</div>
           </div>
           <div style="flex:1;background:#eff6ff;border-radius:7px;padding:10px 12px;">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#1d4ed8;margin-bottom:4px;">Year-5 SOM base</div>
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#1d4ed8;margin-bottom:4px;">Year-5 SOM</div>
             <div style="font-size:16px;font-weight:800;">€6.5M ARR</div>
           </div>
           <div style="flex:1;background:#eff6ff;border-radius:7px;padding:10px 12px;">
@@ -589,31 +624,68 @@
             <div style="font-size:16px;font-weight:800;">€18k/seat</div>
           </div>
         </div>
+
+        <div style="font-size:11px;color:#1d4ed8;margin-bottom:12px;padding:8px 10px;background:#dbeafe;border-radius:6px;">
+          ICP: M&A Associates &amp; VPs · Big-4 + Nordic boutiques · €20–500M EV deals
+        </div>
+
         <div class="card-footer">
           <button class="btn-primary btn-blue" onclick="event.stopPropagation();show('ov-c2')">Read brief →</button>
           <button class="btn-outline" onclick="event.stopPropagation();show('c2-search')">Open prototype</button>
         </div>
       </div>
     </div>
-    <div style="padding: 0 32px 28px;">
+
+    <!-- Build sequence + shared engine -->
+    <div style="padding:0 32px 32px;display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+
+      <!-- Build sequence -->
       <div class="card">
-        <div class="card-header">
-          <h4>Strategic decisions locked</h4>
-          <span class="chip chip-grey">Source: DaaS Brief</span>
-        </div>
-        <div class="card-body">
-          <table class="data-table">
-            <thead><tr><th>Decision</th><th>Locked position</th></tr></thead>
-            <tbody>
-              <tr><td>One venture or two</td><td><strong>Two separate ventures.</strong> Shared internal data architecture, separate product, ICP, GTM.</td></tr>
-              <tr><td>Sequencing</td><td><strong>Concept 2 (Market Intelligence) first.</strong> Concept 1 gated on e-conomic overlap validation.</td></tr>
-              <tr><td>Concept 1 data scope</td><td><strong>Option C (Hybrid):</strong> e-conomic is seed/wedge; expand to other ERPs once anchor logos won.</td></tr>
-              <tr><td>Concept 1 ICP</td><td>Cut classic VC. Keep growth equity and lower-mid-market PE.</td></tr>
-              <tr><td>Concept 2 wedge ICP</td><td>Nordic mid-market M&amp;A advisory — Big-4 corporate finance + boutiques.</td></tr>
-            </tbody>
-          </table>
+        <div class="card-header"><h4>Build sequence</h4><span class="chip chip-grey">What comes first and why</span></div>
+        <div class="card-body" style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;gap:14px;align-items:flex-start;padding:12px;background:#eff6ff;border-radius:8px;border:1.5px solid #bfdbfe;">
+            <div style="background:#2563eb;color:white;font-size:11px;font-weight:700;border-radius:99px;width:22px;height:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>
+            <div>
+              <div style="font-weight:700;font-size:13px;color:#1e3a5f;">Market Intelligence</div>
+              <div style="font-size:12px;color:#374151;margin-top:3px;line-height:1.5;">Faster to validate. Smaller ask — pay-per-seat. Can build with public data + e-conomic today. Proof of data quality before tackling PE reporting.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-start;padding:12px;background:#f9fafb;border-radius:8px;border:1.5px solid var(--border);">
+            <div style="background:#e5e7eb;color:#6b7280;font-size:11px;font-weight:700;border-radius:99px;width:22px;height:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>
+            <div>
+              <div style="font-weight:700;font-size:13px;color:#6b7280;">Portfolio Monitoring</div>
+              <div style="font-size:12px;color:#9ca3af;margin-top:3px;line-height:1.5;">Gated on e-conomic overlap study. Enterprise sales cycle. Build after Concept 2 has proven the data layer.</div>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Shared data engine -->
+      <div class="card">
+        <div class="card-header"><h4>The shared advantage</h4><span class="chip chip-green">Data moat</span></div>
+        <div class="card-body">
+          <div style="font-size:13px;color:#374151;line-height:1.7;margin-bottom:14px;">Both ventures run on the same underlying data advantage — live financial data from e-conomic, already inside 250k+ Nordic private companies.</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:12px;">
+              <span style="font-size:16px;">🏦</span>
+              <div><strong>250k+ companies</strong> with live e-conomic access</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:12px;">
+              <span style="font-size:16px;">📅</span>
+              <div><strong>Monthly refresh</strong> vs. 12–18 month stale filings</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:12px;">
+              <span style="font-size:16px;">🔒</span>
+              <div><strong>Not replicable</strong> without owning the ERP</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:12px;">
+              <span style="font-size:16px;">🌍</span>
+              <div><strong>Nordic coverage</strong> — DK, SE, NO, FI</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
