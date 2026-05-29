@@ -2168,60 +2168,69 @@
       <p style="color:var(--muted);font-size:13px;margin-bottom:20px;">Find B2B software virksomheder i Norden der matcher dine investeringskriterier.</p>
 
       <!-- Filter card -->
-      <div class="card" style="margin-bottom:24px;">
-        <!-- Search input -->
-        <div style="display:flex;gap:10px;margin-bottom:20px;">
+      <div class="card" style="margin-bottom:24px;padding:0;overflow:hidden;">
+
+        <!-- Search row -->
+        <div style="display:flex;gap:10px;padding:20px 24px;border-bottom:1px solid var(--border);">
           <div style="position:relative;flex:1;">
-            <svg style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#9ca3af;" width="14" height="14" viewBox="0 0 20 20" fill="none"><circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="2"/><path d="M13 13l3.5 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            <input id="scr-input" type="text" placeholder="Søg på virksomhedsnavn…" style="width:100%;padding:10px 12px 10px 34px;border:1px solid var(--border);border-radius:8px;font-size:13px;outline:none;font-family:inherit;" onkeydown="if(event.key==='Enter')runScreening()">
+            <svg style="position:absolute;left:13px;top:50%;transform:translateY(-50%);color:#9ca3af;" width="15" height="15" viewBox="0 0 20 20" fill="none"><circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="2"/><path d="M13 13l3.5 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <input id="scr-input" type="text" placeholder="Søg på virksomhedsnavn…" style="width:100%;padding:11px 14px 11px 38px;border:1px solid var(--border);border-radius:8px;font-size:13px;outline:none;font-family:inherit;background:#fafafa;" onkeydown="if(event.key==='Enter')runScreening()">
           </div>
-          <button class="btn-primary btn-blue" style="padding:10px 22px;font-size:13px;" onclick="runScreening()">Søg</button>
+          <button class="btn-primary btn-blue" style="padding:11px 26px;font-size:13px;" onclick="runScreening()">Søg</button>
         </div>
 
-        <!-- Kategori -->
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;">
-          <span style="font-size:12px;color:var(--muted);font-weight:600;width:68px;flex-shrink:0;">Kategori:</span>
-          <div id="scr-cat" style="display:flex;gap:6px;flex-wrap:wrap;">
-            <button class="scr-chip active" data-group="cat" data-val="alle" onclick="scrFilter(this,'cat')">Alle</button>
-            <button class="scr-chip" data-group="cat" data-val="b2b" onclick="scrFilter(this,'cat')">B2B Software</button>
-            <button class="scr-chip" data-group="cat" data-val="fintech" onclick="scrFilter(this,'cat')">Fintech</button>
-            <button class="scr-chip" data-group="cat" data-val="ecom" onclick="scrFilter(this,'cat')">E-commerce</button>
-            <button class="scr-chip" data-group="cat" data-val="hr" onclick="scrFilter(this,'cat')">HR Tech</button>
-            <button class="scr-chip" data-group="cat" data-val="reg" onclick="scrFilter(this,'cat')">RegTech</button>
-            <button class="scr-chip" data-group="cat" data-val="mar" onclick="scrFilter(this,'cat')">Martech</button>
-          </div>
-        </div>
+        <!-- Filter rows -->
+        <div style="padding:16px 24px;display:flex;flex-direction:column;gap:14px;">
 
-        <!-- Region + Min ARR -->
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;">
-          <span style="font-size:12px;color:var(--muted);font-weight:600;width:68px;flex-shrink:0;">Region:</span>
-          <div style="display:flex;gap:6px;flex-wrap:wrap;">
-            <button class="scr-chip active" data-group="region" data-val="alle" onclick="scrFilter(this,'region')">Alle</button>
-            <button class="scr-chip" data-group="region" data-val="dk" onclick="scrFilter(this,'region')">Danmark</button>
-            <button class="scr-chip" data-group="region" data-val="se" onclick="scrFilter(this,'region')">Sverige</button>
-            <button class="scr-chip" data-group="region" data-val="no" onclick="scrFilter(this,'region')">Norge</button>
-            <button class="scr-chip" data-group="region" data-val="fi" onclick="scrFilter(this,'region')">Finland</button>
+          <!-- Kategori -->
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="font-size:12px;color:var(--muted);font-weight:600;width:76px;flex-shrink:0;">Kategori:</span>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <button class="scr-chip active" data-group="cat" data-val="alle" onclick="scrFilter(this,'cat')">Alle</button>
+              <button class="scr-chip" data-group="cat" data-val="b2b" onclick="scrFilter(this,'cat')">B2B Software</button>
+              <button class="scr-chip" data-group="cat" data-val="fintech" onclick="scrFilter(this,'cat')">Fintech</button>
+              <button class="scr-chip" data-group="cat" data-val="ecom" onclick="scrFilter(this,'cat')">E-commerce</button>
+              <button class="scr-chip" data-group="cat" data-val="hr" onclick="scrFilter(this,'cat')">HR Tech</button>
+              <button class="scr-chip" data-group="cat" data-val="reg" onclick="scrFilter(this,'cat')">RegTech</button>
+              <button class="scr-chip" data-group="cat" data-val="mar" onclick="scrFilter(this,'cat')">Martech</button>
+            </div>
           </div>
-          <div style="width:1px;height:20px;background:var(--border);margin:0 4px;"></div>
-          <span style="font-size:12px;color:var(--muted);font-weight:600;flex-shrink:0;">Min. ARR:</span>
-          <div style="display:flex;gap:6px;flex-wrap:wrap;">
-            <button class="scr-chip active" data-group="arr" data-val="0" onclick="scrFilter(this,'arr')">Alle</button>
-            <button class="scr-chip" data-group="arr" data-val="2" onclick="scrFilter(this,'arr')">€2M</button>
-            <button class="scr-chip" data-group="arr" data-val="5" onclick="scrFilter(this,'arr')">€5M</button>
-            <button class="scr-chip" data-group="arr" data-val="10" onclick="scrFilter(this,'arr')">€10M</button>
-            <button class="scr-chip" data-group="arr" data-val="20" onclick="scrFilter(this,'arr')">€20M</button>
-          </div>
-        </div>
 
-        <!-- Vækst -->
-        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-          <span style="font-size:12px;color:var(--muted);font-weight:600;width:68px;flex-shrink:0;">Vækst:</span>
-          <div style="display:flex;gap:6px;flex-wrap:wrap;">
-            <button class="scr-chip active" data-group="growth" data-val="0" onclick="scrFilter(this,'growth')">Alle</button>
-            <button class="scr-chip" data-group="growth" data-val="20" onclick="scrFilter(this,'growth')">+20%</button>
-            <button class="scr-chip" data-group="growth" data-val="30" onclick="scrFilter(this,'growth')">+30%</button>
-            <button class="scr-chip" data-group="growth" data-val="50" onclick="scrFilter(this,'growth')">+50%</button>
+          <!-- Region -->
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="font-size:12px;color:var(--muted);font-weight:600;width:76px;flex-shrink:0;">Region:</span>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <button class="scr-chip active" data-group="region" data-val="alle" onclick="scrFilter(this,'region')">Alle</button>
+              <button class="scr-chip" data-group="region" data-val="dk" onclick="scrFilter(this,'region')">Danmark</button>
+              <button class="scr-chip" data-group="region" data-val="se" onclick="scrFilter(this,'region')">Sverige</button>
+              <button class="scr-chip" data-group="region" data-val="no" onclick="scrFilter(this,'region')">Norge</button>
+              <button class="scr-chip" data-group="region" data-val="fi" onclick="scrFilter(this,'region')">Finland</button>
+            </div>
           </div>
+
+          <!-- Min. ARR -->
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="font-size:12px;color:var(--muted);font-weight:600;width:76px;flex-shrink:0;">Min. ARR:</span>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <button class="scr-chip active" data-group="arr" data-val="0" onclick="scrFilter(this,'arr')">Alle</button>
+              <button class="scr-chip" data-group="arr" data-val="2" onclick="scrFilter(this,'arr')">€2M</button>
+              <button class="scr-chip" data-group="arr" data-val="5" onclick="scrFilter(this,'arr')">€5M</button>
+              <button class="scr-chip" data-group="arr" data-val="10" onclick="scrFilter(this,'arr')">€10M</button>
+              <button class="scr-chip" data-group="arr" data-val="20" onclick="scrFilter(this,'arr')">€20M</button>
+            </div>
+          </div>
+
+          <!-- Vækst -->
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="font-size:12px;color:var(--muted);font-weight:600;width:76px;flex-shrink:0;">Vækst:</span>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <button class="scr-chip active" data-group="growth" data-val="0" onclick="scrFilter(this,'growth')">Alle</button>
+              <button class="scr-chip" data-group="growth" data-val="20" onclick="scrFilter(this,'growth')">+20%</button>
+              <button class="scr-chip" data-group="growth" data-val="30" onclick="scrFilter(this,'growth')">+30%</button>
+              <button class="scr-chip" data-group="growth" data-val="50" onclick="scrFilter(this,'growth')">+50%</button>
+            </div>
+          </div>
+
         </div>
       </div>
 
