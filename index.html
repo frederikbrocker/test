@@ -429,19 +429,25 @@
 
   /* Screening filter chips */
   .scr-chip {
-    padding: 5px 14px;
+    padding: 7px 16px;
     border-radius: 99px;
     border: 1.5px solid var(--border);
     background: var(--surface);
-    font-size: 12px;
+    font-size: 12.5px;
     font-weight: 500;
-    color: var(--muted);
+    color: #374151;
     cursor: pointer;
     font-family: inherit;
     transition: all .15s;
+    white-space: nowrap;
   }
-  .scr-chip:hover { border-color: var(--accent2); color: var(--accent2); }
+  .scr-chip:hover { border-color: var(--accent2); color: var(--accent2); background: #eff6ff; }
   .scr-chip.active { background: var(--accent2); border-color: var(--accent2); color: #fff; font-weight: 600; }
+
+  /* Screening table rows */
+  #scr-tbody tr td { padding: 14px 12px; }
+  #scr-tbody tr { transition: background .1s; }
+  #scr-tbody tr:hover { background: #f8fafc; }
 
   /* Transaction */
   .tx-row { display: flex; align-items: center; gap: 16px; padding: 12px 0; border-bottom: 1px solid #f3f4f6; }
@@ -2165,7 +2171,7 @@
     </div>
 
     <div class="content">
-      <p style="color:var(--muted);font-size:13px;margin-bottom:20px;">Find B2B software virksomheder i Norden der matcher dine investeringskriterier.</p>
+      <p style="color:var(--muted);font-size:13px;margin-bottom:20px;">Sæt filtre og find investeringsklare targets i Norden — klik <strong>Deep dive</strong> for at åbne en virksomhed i Company Lookup.</p>
 
       <!-- Filter card -->
       <div class="card" style="margin-bottom:24px;padding:0;overflow:hidden;">
@@ -2180,12 +2186,12 @@
         </div>
 
         <!-- Filter rows -->
-        <div style="padding:16px 24px;display:flex;flex-direction:column;gap:14px;">
+        <div style="display:flex;flex-direction:column;">
 
           <!-- Kategori -->
-          <div style="display:flex;align-items:center;gap:12px;">
-            <span style="font-size:12px;color:var(--muted);font-weight:600;width:76px;flex-shrink:0;">Kategori:</span>
-            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:16px;padding:16px 24px;border-bottom:1px solid #f3f4f6;">
+            <span style="font-size:12px;color:var(--muted);font-weight:600;width:80px;flex-shrink:0;letter-spacing:.2px;">Kategori</span>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
               <button class="scr-chip active" data-group="cat" data-val="alle" onclick="scrFilter(this,'cat')">Alle</button>
               <button class="scr-chip" data-group="cat" data-val="b2b" onclick="scrFilter(this,'cat')">B2B Software</button>
               <button class="scr-chip" data-group="cat" data-val="fintech" onclick="scrFilter(this,'cat')">Fintech</button>
@@ -2197,9 +2203,9 @@
           </div>
 
           <!-- Region -->
-          <div style="display:flex;align-items:center;gap:12px;">
-            <span style="font-size:12px;color:var(--muted);font-weight:600;width:76px;flex-shrink:0;">Region:</span>
-            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:16px;padding:16px 24px;border-bottom:1px solid #f3f4f6;">
+            <span style="font-size:12px;color:var(--muted);font-weight:600;width:80px;flex-shrink:0;letter-spacing:.2px;">Region</span>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
               <button class="scr-chip active" data-group="region" data-val="alle" onclick="scrFilter(this,'region')">Alle</button>
               <button class="scr-chip" data-group="region" data-val="dk" onclick="scrFilter(this,'region')">Danmark</button>
               <button class="scr-chip" data-group="region" data-val="se" onclick="scrFilter(this,'region')">Sverige</button>
@@ -2209,9 +2215,9 @@
           </div>
 
           <!-- Min. ARR -->
-          <div style="display:flex;align-items:center;gap:12px;">
-            <span style="font-size:12px;color:var(--muted);font-weight:600;width:76px;flex-shrink:0;">Min. ARR:</span>
-            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:16px;padding:16px 24px;border-bottom:1px solid #f3f4f6;">
+            <span style="font-size:12px;color:var(--muted);font-weight:600;width:80px;flex-shrink:0;letter-spacing:.2px;">Min. ARR</span>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
               <button class="scr-chip active" data-group="arr" data-val="0" onclick="scrFilter(this,'arr')">Alle</button>
               <button class="scr-chip" data-group="arr" data-val="2" onclick="scrFilter(this,'arr')">€2M</button>
               <button class="scr-chip" data-group="arr" data-val="5" onclick="scrFilter(this,'arr')">€5M</button>
@@ -2221,9 +2227,9 @@
           </div>
 
           <!-- Vækst -->
-          <div style="display:flex;align-items:center;gap:12px;">
-            <span style="font-size:12px;color:var(--muted);font-weight:600;width:76px;flex-shrink:0;">Vækst:</span>
-            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:16px;padding:16px 24px;">
+            <span style="font-size:12px;color:var(--muted);font-weight:600;width:80px;flex-shrink:0;letter-spacing:.2px;">Vækst</span>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
               <button class="scr-chip active" data-group="growth" data-val="0" onclick="scrFilter(this,'growth')">Alle</button>
               <button class="scr-chip" data-group="growth" data-val="20" onclick="scrFilter(this,'growth')">+20%</button>
               <button class="scr-chip" data-group="growth" data-val="30" onclick="scrFilter(this,'growth')">+30%</button>
@@ -2814,6 +2820,7 @@
     const val = btn.dataset.val;
     if (group === 'arr' || group === 'growth') scrFilters[group] = parseFloat(val);
     else scrFilters[group] = val;
+    runScreening();
   }
 
   function runScreening() {
@@ -2883,6 +2890,7 @@
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
     const items = document.querySelectorAll('.nav-item');
     if (navMap[pageId] !== undefined) items[navMap[pageId]]?.classList.add('active');
+    if (pageId === 'c2-screening') setTimeout(runScreening, 0);
   };
 
   // ── Portco data ──
