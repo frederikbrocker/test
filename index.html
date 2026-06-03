@@ -485,6 +485,10 @@
       <span class="dot dot-grey"></span>
       Commercial
     </div>
+    <div class="nav-item" onclick="show('ov-competitor')">
+      <span class="dot dot-grey"></span>
+      Competitor Analysis
+    </div>
   </div>
 
   <div class="nav-section">
@@ -1120,6 +1124,155 @@
   </div>
 
   <!-- ════════════════════════════════
+       OVERVIEW — COMPETITOR ANALYSIS
+  ═════════════════════════════════ -->
+  <div id="page-ov-competitor" class="page" style="display:none;flex-direction:column;">
+    <div class="topbar">
+      <h1>Competitor Analysis</h1>
+      <span class="chip chip-grey" style="margin-left:8px;">Both concepts · DKK · June 2026</span>
+      <span style="margin-left:auto;font-size:11px;color:var(--muted);">Hover any price for sources &amp; assumptions · Click card to expand</span>
+    </div>
+    <div class="content" style="overflow-y:auto;">
+
+      <!-- Confidence legend -->
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;font-size:11px;color:var(--muted);">
+        <span style="font-weight:600;">Confidence:</span>
+        <span><span style="color:#5F9079;font-weight:700;">●</span> Verified (public price)</span>
+        <span><span style="color:#A96E34;font-weight:700;">●</span> Reported (procurement data)</span>
+        <span><span style="color:#6b7280;font-weight:700;">●</span> Estimated (indirect signals)</span>
+        <span><span style="color:#B5616C;font-weight:700;">●</span> Opaque (no data)</span>
+        <span style="margin-left:8px;color:#6b7280;">FX: USD/DKK 6,42 · EUR/DKK 7,46 (pegged)</span>
+      </div>
+
+      <!-- Concept tabs -->
+      <div class="tab-bar" style="margin-bottom:0;">
+        <button class="tab-btn active" id="ctab-c1" onclick="switchCompTab('c1')">C1 — Portfolio Dashboard</button>
+        <button class="tab-btn" id="ctab-c2" onclick="switchCompTab('c2')">C2 — Market Intelligence</button>
+      </div>
+
+      <!-- C1 Panel -->
+      <div id="cpanel-c1" style="padding-top:24px;">
+
+        <!-- Pricing recommendation -->
+        <div style="border:1.5px solid #A96E3480;border-radius:10px;padding:20px;margin-bottom:24px;background:white;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:4px;">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#A96E34;">Hvad kan vi tage?</span>
+            <span style="font-size:11px;color:var(--muted);">per fond / år (platform subscription)</span>
+          </div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:16px;">Incumbents (iLEVEL ~230k base, Cobalt/Chronograph ~320k–1,28M DKK) prissætter for store fonde. Det reelle alternativ er gratis-men-smertefuldt Excel. Vores wedge — zero-effort live data — lader os sætte os godt under incumbents, mens vi stadig tager rigtige penge for at løse freshness + manual-work-problemet de ikke rører.</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+            <div style="background:#dbeafe;border-radius:8px;padding:14px;border-top:3px solid #2563eb;">
+              <div style="font-size:10px;color:#2563eb;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">Entry / land</div>
+              <div style="font-size:24px;font-weight:800;color:var(--text);margin-bottom:6px;line-height:1;">~75k DKK</div>
+              <div style="font-size:11px;color:var(--muted);line-height:1.5;">Lille fond (3–5 portcos) der fortrænger Excel. ~⅓ af iLEVELs base — let ja, minimal procurement-friktion.</div>
+            </div>
+            <div style="background:#fef3c7;border-radius:8px;padding:14px;border-top:3px solid #d97706;">
+              <div style="font-size:10px;color:#d97706;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">Core mid-market</div>
+              <div style="font-size:24px;font-weight:800;color:var(--text);margin-bottom:6px;line-height:1;">~175k DKK</div>
+              <div style="font-size:11px;color:var(--muted);line-height:1.5;">5–10 portco fond. Under iLEVEL base+users, ~50%+ under Cobalt/Chronograph. Premium justificeret af zero data-collection-indsats.</div>
+            </div>
+            <div style="background:#dcfce7;border-radius:8px;padding:14px;border-top:3px solid #16a34a;">
+              <div style="font-size:10px;color:#16a34a;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">Larger / premium</div>
+              <div style="font-size:24px;font-weight:800;color:var(--text);margin-bottom:6px;line-height:1;">~375k DKK</div>
+              <div style="font-size:11px;color:var(--muted);line-height:1.5;">10–20+ portcos. Stadig i bunden af incumbent deployments — "billigere end iLEVEL" holder, mens vi fanger mere freshness-value.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Competitor cards C1 -->
+        <div id="c1-cards"></div>
+      </div>
+
+      <!-- C2 Panel -->
+      <div id="cpanel-c2" style="padding-top:24px;display:none;">
+
+        <!-- Pricing recommendation -->
+        <div style="border:1.5px solid #A96E3480;border-radius:10px;padding:20px;margin-bottom:24px;background:white;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:4px;">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#A96E34;">Hvad kan vi tage?</span>
+            <span style="font-size:11px;color:var(--muted);">per seat / år</span>
+          </div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:16px;">Legacy-terminalerne (PitchBook ~96–128k, CapIQ ~77–193k, Gain.pro/Valu8 ~75–224k, Mergermarket ~149–224k DKK/seat) sætter loftet. Tættest direkte komp — AI-native Inven — lister ~64k DKK/seat og discounter kraftigt. Vores wedge — live Nordic SMB-finansielle data ingen af dem har — justificerer et premium over Inven, mens vi forbliver under terminalerne.</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px;">
+            <div style="background:#dbeafe;border-radius:8px;padding:14px;border-top:3px solid #2563eb;">
+              <div style="font-size:10px;color:#2563eb;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">Entry / land</div>
+              <div style="font-size:24px;font-weight:800;color:var(--text);margin-bottom:6px;line-height:1;">~55k DKK</div>
+              <div style="font-size:11px;color:var(--muted);line-height:1.5;">Matcher Invens diskonterede floor og undercuts alle terminaler. Ankret til "billigere end én advisor-rapport, erstatter dages analyst-scraping."</div>
+            </div>
+            <div style="background:#fef3c7;border-radius:8px;padding:14px;border-top:3px solid #d97706;">
+              <div style="font-size:10px;color:#d97706;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">Core seat</div>
+              <div style="font-size:24px;font-weight:800;color:var(--text);margin-bottom:6px;line-height:1;">~100k DKK</div>
+              <div style="font-size:11px;color:var(--muted);line-height:1.5;">Premium over Inven (justificeret af live ledger data), stadig klart under PitchBook/CapIQ/Mergermarket. "Mere Nordic dybde for mindre" sweet spot.</div>
+            </div>
+            <div style="background:#dcfce7;border-radius:8px;padding:14px;border-top:3px solid #16a34a;">
+              <div style="font-size:10px;color:#16a34a;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">Premium / power user</div>
+              <div style="font-size:24px;font-weight:800;color:var(--text);margin-bottom:6px;line-height:1;">~175k DKK</div>
+              <div style="font-size:11px;color:var(--muted);line-height:1.5;">For tunge deal teams. Ved/under Mergermarket og inden for Gain.pro/Valu8-range. Justificeret ved unik live data Inven og terminalerne mangler.</div>
+            </div>
+          </div>
+
+          <!-- ACV matrix -->
+          <div style="font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#A96E34;margin-bottom:10px;">Estimeret annual contract value per firma (DKK)</div>
+          <div style="border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+            <table style="width:100%;border-collapse:collapse;font-size:12px;">
+              <thead>
+                <tr style="background:#f9fafb;">
+                  <th style="padding:10px 12px;text-align:left;font-weight:700;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--border);">Firmastørrelse / seats</th>
+                  <th style="padding:10px 12px;text-align:center;font-weight:700;color:#2563eb;font-size:10px;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--border);border-left:1px solid var(--border);">Entry (~55k kr.)</th>
+                  <th style="padding:10px 12px;text-align:center;font-weight:700;color:#d97706;font-size:10px;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--border);border-left:1px solid var(--border);">Core (~100k kr.)</th>
+                  <th style="padding:10px 12px;text-align:center;font-weight:700;color:#16a34a;font-size:10px;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--border);border-left:1px solid var(--border);">Premium (~175k kr.)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding:10px 12px;border-bottom:1px solid var(--border);"><div style="font-weight:700;">Lille (2–4 seats)</div><div style="font-size:10px;color:var(--muted);">Boutique rådgiver eller lille PE (5–10 portcos)</div></td>
+                  <td style="padding:10px 12px;text-align:center;font-weight:700;border-bottom:1px solid var(--border);border-left:1px solid var(--border);">110k–220k DKK</td>
+                  <td style="padding:10px 12px;text-align:center;font-weight:700;border-bottom:1px solid var(--border);border-left:1px solid var(--border);">200k–400k DKK</td>
+                  <td style="padding:10px 12px;text-align:center;font-weight:700;border-bottom:1px solid var(--border);border-left:1px solid var(--border);">350k–700k DKK</td>
+                </tr>
+                <tr style="background:#f9fafb;">
+                  <td style="padding:10px 12px;border-bottom:1px solid var(--border);"><div style="font-weight:700;">Medium (5–8 seats)</div><div style="font-size:10px;color:var(--muted);">Mid-market PE eller mid-size advisory</div></td>
+                  <td style="padding:10px 12px;text-align:center;font-weight:700;border-bottom:1px solid var(--border);border-left:1px solid var(--border);">275k–440k DKK</td>
+                  <td style="padding:10px 12px;text-align:center;font-weight:700;border-bottom:1px solid var(--border);border-left:1px solid var(--border);">500k–800k DKK</td>
+                  <td style="padding:10px 12px;text-align:center;font-weight:700;border-bottom:1px solid var(--border);border-left:1px solid var(--border);">875k–1,4M DKK</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px 12px;"><div style="font-weight:700;">Stor (8–15 seats)</div><div style="font-size:10px;color:var(--muted);">Større PE (20–30+ portcos) eller stor advisory</div></td>
+                  <td style="padding:10px 12px;text-align:center;font-weight:700;border-left:1px solid var(--border);">440k–825k DKK</td>
+                  <td style="padding:10px 12px;text-align:center;font-weight:700;border-left:1px solid var(--border);">800k–1,5M DKK</td>
+                  <td style="padding:10px 12px;text-align:center;font-weight:700;border-left:1px solid var(--border);">1,4M–2,6M DKK</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="font-size:10px;color:var(--muted);margin-top:8px;font-style:italic;">Retningsgivende — flere konkurrentpriser er estimerede/opaque (se kort nedenfor). Tal er udgangspunkter for business case, ikke committed pricing.</div>
+        </div>
+
+        <!-- Competitor cards C2 -->
+        <div id="c2-cards"></div>
+      </div>
+
+      <!-- Pricing strategy implications -->
+      <div id="pricing-implications" style="margin-top:32px;padding:20px 24px;background:white;border-radius:10px;border:1.5px solid #A96E3440;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#A96E34;margin-bottom:12px;">Pricing strategy — implikationer</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div>
+            <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Concept 1 — Portfolio Dashboard</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.6;">Comp set er iLEVEL/Chronograph/Cobalt ved ~230k–1,3M DKK. Men vi fortrænger reelt Excel. Target fonde priced out af incumbents der prøvede DIY og fejlede. Prissætning ved ~100k–260k DKK/år for 5–10 portco fond sidder 70–90% under incumbents, mens vi løser freshness-problemet ingen af dem rører.</div>
+          </div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Concept 2 — Market Intelligence</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.6;">Comp set er Valu8/Gain.pro/PitchBook/CIQ/Mergermarket ved ~77k–449k DKK/seat. Reel fortrængning er gratis junior-analyst-tid og one-off advisor rapporter (~50k–500k DKK). Wedge: pris under terminalerne (~90k–130k DKK/seat?) med Nordic SMB-dybde ingen af dem har. Valu8 (nu Datasite-backed) er konkurrenten at benchmarke imod.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size:10px;color:var(--muted);margin-top:16px;margin-bottom:32px;line-height:1.5;">Kilder: Vendr procurement data (n=114 PitchBook), Costbench (18 sources for CIQ), Datasite/Valu8 acquisition release, Performativ Series A, Crediwire.com/price, Planr category guide, G2/Datarade, Crunchbase/Tracxn, company sites, project interviews. FX: nationalbanken.dk + x-rates June 2026. Søgt June 2026. Estimerede/Opaque tal bør verificeres via sales calls.</div>
+
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════
        OVERVIEW — CONCEPT 1
   ═════════════════════════════════ -->
   <div id="page-ov-c1" class="page">
@@ -1320,32 +1473,57 @@
 
       <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px 18px;margin-bottom:16px;font-size:13px;color:#14532d;font-style:italic;">"Every PE portfolio monitoring tool on the market still relies on the PortCo CFO sending in data. We are the only one that pulls live data directly from the ERP the PortCo already uses — because we own it."</div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px;">
+
+        <!-- Box 1: Global platforms -->
         <div style="border:1px solid var(--border);border-radius:8px;padding:16px;background:white;">
-          <div style="font-size:12px;font-weight:700;margin-bottom:8px;">iLEVEL / Chronograph</div>
-          <div style="font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:10px;">Global incumbents. Strong product, deep benchmarking. But US/large-cap focused and still template-based — the PortCo CFO still sends data manually.</div>
-          <div style="display:flex;gap:6px;flex-wrap:wrap;">
-            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:99px;font-weight:600;">✓ We win on freshness</span>
-            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:99px;font-weight:600;">✓ We win on Nordic SMB fit</span>
-            <span style="font-size:10px;background:#fef2f2;color:#dc2626;padding:2px 7px;border-radius:99px;font-weight:600;">✗ We lose on brand</span>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px;">Global portfolio monitoring platforms</div>
+          <div style="font-size:13px;font-weight:700;margin-bottom:3px;">iLEVEL · Chronograph · Cobalt</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px;padding:4px 8px;background:#f9fafb;border-radius:5px;border:1px solid var(--border);">💰 ~230k–1,3M kr./år (platform)</div>
+          <div style="font-size:11px;color:#374151;line-height:1.6;margin-bottom:10px;">Enterprise-grade platforms used by 100–700+ PE/VC firms globally. Strong dashboards and benchmarking — but all rely on template-based data collection. No live ERP. US-centric, heavy implementation.</div>
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:4px;font-weight:600;">✓ Freshness — live ERP vs. quarterly templates</span>
+            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:4px;font-weight:600;">✓ Nordic SMB fit — ERPs portcos actually use</span>
+            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:4px;font-weight:600;">✓ Price — 70–90% below incumbents</span>
+            <span style="font-size:10px;background:#fef2f2;color:#dc2626;padding:2px 8px;border-radius:4px;font-weight:600;">✗ Brand and global track record</span>
+            <span style="font-size:10px;background:#fef2f2;color:#dc2626;padding:2px 8px;border-radius:4px;font-weight:600;">✗ Enterprise feature depth (LP portals)</span>
           </div>
         </div>
+
+        <!-- Box 2: DIY & Status quo -->
         <div style="border:1.5px solid #dc2626;border-radius:8px;padding:16px;background:#fef9f9;">
-          <div style="font-size:12px;font-weight:700;margin-bottom:8px;color:#dc2626;">Excel + email <span style="font-size:10px;background:#fef2f2;padding:1px 6px;border-radius:99px;">Real competitor</span></div>
-          <div style="font-size:11px;color:#374151;line-height:1.6;margin-bottom:10px;">Free, familiar, zero procurement friction. Most lower-mid-market funds have never tried anything else. Nordic Alpha tried Tableau — <em>"It just grew too big. Huge consultant costs."</em></div>
-          <div style="display:flex;gap:6px;flex-wrap:wrap;">
-            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:99px;font-weight:600;">✓ We win on time saved</span>
-            <span style="font-size:10px;background:#fef2f2;color:#dc2626;padding:2px 7px;border-radius:99px;font-weight:600;">✗ We lose on change friction</span>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#dc2626;margin-bottom:6px;">DIY &amp; status quo <span style="font-size:9px;background:#fef2f2;padding:1px 6px;border-radius:99px;margin-left:4px;">Real competitor</span></div>
+          <div style="font-size:13px;font-weight:700;margin-bottom:3px;">Excel + Email · Tableau / Power BI</div>
+          <div style="font-size:11px;color:#dc2626;margin-bottom:10px;padding:4px 8px;background:#fef2f2;border-radius:5px;border:1px solid #fecaca;">💰 Gratis → ~510k–770k kr./år (data-ingeniør FTE)</div>
+          <div style="font-size:11px;color:#374151;line-height:1.6;margin-bottom:10px;">Det faktiske incumbent hos de fleste Nordic PE fonde. Nordic Alpha prøvede Tableau + Alteryx og opgav det: <em>"It just grew too big — huge consultant costs."</em> Gratis men smertefuldt.</div>
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:4px;font-weight:600;">✓ 1–2 timer/portco/måned elimineret</span>
+            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:4px;font-weight:600;">✓ Automatisk benchmarking og signal-detektion</span>
+            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:4px;font-weight:600;">✓ DIY-fiasko-casen er vores bedste proof point</span>
+            <span style="font-size:10px;background:#fef2f2;color:#dc2626;padding:2px 8px;border-radius:4px;font-weight:600;">✗ Change friction — Excel er gratis og velkendt</span>
+            <span style="font-size:10px;background:#fef2f2;color:#dc2626;padding:2px 8px;border-radius:4px;font-weight:600;">✗ Ingen procurement-godkendelse nødvendig</span>
           </div>
         </div>
+
+        <!-- Box 3: Adjacent & Emerging -->
         <div style="border:1px solid var(--border);border-radius:8px;padding:16px;background:white;">
-          <div style="font-size:12px;font-weight:700;margin-bottom:8px;">DIY BI (Tableau / Power BI)</div>
-          <div style="font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:10px;">Flexible, but requires a near-full-time data engineer. Nordic Alpha built it and abandoned it. This failure pattern is our structural wedge — we can cite it in every pitch.</div>
-          <div style="display:flex;gap:6px;flex-wrap:wrap;">
-            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:99px;font-weight:600;">✓ We win on maintenance</span>
-            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:99px;font-weight:600;">✓ We win on out-of-the-box</span>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px;">Adjacent &amp; emerging</div>
+          <div style="font-size:13px;font-weight:700;margin-bottom:3px;">Crediwire · Allvue · Planr</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px;padding:4px 8px;background:#f9fafb;border-radius:5px;border:1px solid var(--border);">💰 Gratis–699 kr./md. · ~320k–1,3M kr./år · Ukendt</div>
+          <div style="font-size:11px;color:#374151;line-height:1.6;margin-bottom:10px;">Et blandet felt. Crediwire validerer live-data-tesen (banker betaler for det) men har intet PE-produkt — det er vores API-kunde. Allvue bundler fund accounting + monitoring men løser for audit, ikke investeringsbeslutninger. Planr er AI-native men uprøvet.</div>
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:4px;font-weight:600;">✓ Vi ejer Crediwires datakilde (270k+ vs. 14k)</span>
+            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:4px;font-weight:600;">✓ Purpose-built for PE — ikke audit/compliance</span>
+            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:4px;font-weight:600;">✓ Live data pipe Planr ikke kan replikere</span>
+            <span style="font-size:10px;background:#fef2f2;color:#dc2626;padding:2px 8px;border-radius:4px;font-weight:600;">✗ Allvues all-in-one bundle (accounting + portal)</span>
+            <span style="font-size:10px;background:#fef2f2;color:#dc2626;padding:2px 8px;border-radius:4px;font-weight:600;">✗ Planrs AI-native UX hvis de løser data-ingestion</span>
           </div>
         </div>
+      </div>
+
+      <div style="background:#f9fafb;border:1px solid var(--border);border-radius:7px;padding:10px 14px;margin-bottom:8px;font-size:11px;color:var(--muted);display:flex;align-items:center;gap:8px;">
+        <span>🔍</span>
+        <span>Fuld konkurrentanalyse med prisoversigt, styrker/svagheder og kildelinks → <strong onclick="show('ov-competitor')" style="color:#2563eb;cursor:pointer;">Competitor Analysis →</strong></span>
       </div>
 
       <div style="height:32px;"></div>
@@ -1554,35 +1732,59 @@
         <div style="flex:1;height:1px;background:var(--border);"></div>
       </div>
 
-      <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:14px 18px;margin-bottom:16px;font-size:13px;color:#1e3a5f;font-style:italic;">"Capital IQ, PitchBook and Mergermarket all default to listed-company proxies when you search for a Nordic €15M private SaaS company — because that's all they have. We give you actual private peer financials updated monthly."</div>
+      <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:14px 18px;margin-bottom:16px;font-size:13px;color:#1e3a5f;font-style:italic;">"Capital IQ, PitchBook og Mergermarket defaulter til børsnoterede proxies når du søger på et €15M dansk privat SaaS-selskab — fordi det er alt de har. Vi giver dig de faktiske finansielle data opdateret månedligt."</div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px;">
-        <div style="border:1px solid var(--border);border-radius:8px;padding:16px;background:white;">
-          <div style="font-size:12px;font-weight:700;margin-bottom:8px;">Mergermarket / Capital IQ / PitchBook</div>
-          <div style="font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:10px;">Strong on deal news, listed companies and global transactions. Weak on Nordic private SMB financials — they default to proxies and often show no revenue at all for targets under €50M.</div>
-          <div style="display:flex;gap:6px;flex-wrap:wrap;">
-            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:99px;font-weight:600;">✓ We win on freshness</span>
-            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:99px;font-weight:600;">✓ We win on Nordic SMB depth</span>
-            <span style="font-size:10px;background:#fef2f2;color:#dc2626;padding:2px 7px;border-radius:99px;font-weight:600;">✗ We lose on global coverage</span>
-          </div>
-        </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px;">
+
+        <!-- Box 1: Nordic-native -->
         <div style="border:1.5px solid #dc2626;border-radius:8px;padding:16px;background:#fef9f9;">
-          <div style="font-size:12px;font-weight:700;margin-bottom:8px;color:#dc2626;">Gain.pro <span style="font-size:10px;background:#fef2f2;padding:1px 6px;border-radius:99px;">Watch closely</span></div>
-          <div style="font-size:11px;color:#374151;line-height:1.6;margin-bottom:10px;">Amsterdam-based, growing fast. Focuses on European private company intelligence. Does not yet have live ERP data for Nordic SMBs — but could close this gap in 12–18 months if they move on it.</div>
-          <div style="display:flex;gap:6px;flex-wrap:wrap;">
-            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:99px;font-weight:600;">✓ We win on live ERP data</span>
-            <span style="font-size:10px;background:#fef2f2;color:#dc2626;padding:2px 7px;border-radius:99px;font-weight:600;">✗ Race against time</span>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#dc2626;margin-bottom:6px;">Nordic-native intelligence <span style="font-size:9px;background:#fef2f2;padding:1px 6px;border-radius:99px;margin-left:4px;">Tættes konkurrenter</span></div>
+          <div style="font-size:13px;font-weight:700;margin-bottom:3px;">Valu8 · Gain.pro · Inven</div>
+          <div style="font-size:11px;color:#dc2626;margin-bottom:10px;padding:4px 8px;background:#fef2f2;border-radius:5px;border:1px solid #fecaca;">💰 ~64k–224k kr./seat/år</div>
+          <div style="font-size:11px;color:#374151;line-height:1.6;margin-bottom:10px;">De mest direkte konkurrenter. Alle European/Nordic-fokuseret og AI-enhanced. Valu8 dækker 70M+ europæiske selskaber og er netop overtaget af Datasite/Grata. Gain.pro brugt af 100% af MBB/Big-4. Inven er tættest på vores use case. Men alle bygger på filings — ingen live ledger-data.</div>
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:4px;font-weight:600;">✓ Freshness — månedlig live ledger vs. årsregnskaber</span>
+            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:4px;font-weight:600;">✓ Micro-SMB dybde — data der aldrig når en filing</span>
+            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:4px;font-weight:600;">✓ Data ingen af dem kan replikere (vi ejer ERP'en)</span>
+            <span style="font-size:10px;background:#fef2f2;color:#dc2626;padding:2px 8px;border-radius:4px;font-weight:600;">✗ Bredde — Valu8 har 70M+ selskaber, Inven 21M+</span>
+            <span style="font-size:10px;background:#fef2f2;color:#dc2626;padding:2px 8px;border-radius:4px;font-weight:600;">✗ Valu8 nu med Datasite/Grata global scale</span>
           </div>
         </div>
+
+        <!-- Box 2: Global terminals -->
         <div style="border:1px solid var(--border);border-radius:8px;padding:16px;background:white;">
-          <div style="font-size:12px;font-weight:700;margin-bottom:8px;">Junior analyst scraping CVR</div>
-          <div style="font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:10px;">The real status quo. Less sticky than Excel in PE, because analysts know it's terrible and are actively looking for something better. Low switching friction — our biggest structural advantage.</div>
-          <div style="display:flex;gap:6px;flex-wrap:wrap;">
-            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:99px;font-weight:600;">✓ We win on time</span>
-            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:99px;font-weight:600;">✓ We win on data quality</span>
-            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:99px;font-weight:600;">✓ We win on consistency</span>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px;">Globale data-terminaler</div>
+          <div style="font-size:13px;font-weight:700;margin-bottom:3px;">PitchBook · Capital IQ · Mergermarket</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px;padding:4px 8px;background:#f9fafb;border-radius:5px;border:1px solid var(--border);">💰 ~77k–449k kr./seat/år</div>
+          <div style="font-size:11px;color:#374151;line-height:1.6;margin-bottom:10px;">Etablerede finansielle data-terminaler som alle M&A-professionelle allerede har. Dyb global dækning og stærk workflow-integration. Men Nordic private SMB-data er tynd — de defaulter til børsnoterede proxies. Søger du på et €15M dansk privat SaaS-selskab, kommer du til kort.</div>
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:4px;font-weight:600;">✓ Nordic SMB-dybde ingen terminal kan matche</span>
+            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:4px;font-weight:600;">✓ Freshness — live månedlig data vs. stale filings</span>
+            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:4px;font-weight:600;">✓ Kan komplementere snarere end erstatte dem</span>
+            <span style="font-size:10px;background:#fef2f2;color:#dc2626;padding:2px 8px;border-radius:4px;font-weight:600;">✗ Global dækning og cross-border mandater</span>
+            <span style="font-size:10px;background:#fef2f2;color:#dc2626;padding:2px 8px;border-radius:4px;font-weight:600;">✗ Brand + etableret workflow (Excel plug-ins)</span>
           </div>
         </div>
+
+        <!-- Box 3: Status quo -->
+        <div style="border:1px solid var(--border);border-radius:8px;padding:16px;background:white;">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px;">Status quo &amp; service-alternativer</div>
+          <div style="font-size:13px;font-weight:700;margin-bottom:3px;">Junior analyst · M&amp;A advisor reports</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px;padding:4px 8px;background:#f9fafb;border-radius:5px;border:1px solid var(--border);">💰 Gratis → ~50k–500k+ kr. pr. kommissioneret rapport</div>
+          <div style="font-size:11px;color:#374151;line-height:1.6;margin-bottom:10px;">Det vi reelt fortrænger hos boutique M&A-firmaer. En junior analyst scraper CVR + årsrapporter + LinkedIn manuelt i dage per target. Alternativt kommissioneres sektor-rapporter fra M&A-rådgivere — dyre, stale ved levering og skalerer ikke.</div>
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:4px;font-weight:600;">✓ Speed — 2 min vs. 2 dage per target</span>
+            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:4px;font-weight:600;">✓ Data ingen scraping kan nå (live, månedlig, micro-SME)</span>
+            <span style="font-size:10px;background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:4px;font-weight:600;">✓ Always-on vs. one-off rapporter</span>
+            <span style="font-size:10px;background:#fef2f2;color:#dc2626;padding:2px 8px;border-radius:4px;font-weight:600;">✗ Zero procurement cost for manuel scraping</span>
+            <span style="font-size:10px;background:#fef2f2;color:#dc2626;padding:2px 8px;border-radius:4px;font-weight:600;">✗ Rådgiver-relationer og deal access følger med ydelsen</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#f9fafb;border:1px solid var(--border);border-radius:7px;padding:10px 14px;margin-bottom:8px;font-size:11px;color:var(--muted);display:flex;align-items:center;gap:8px;">
+        <span>🔍</span>
+        <span>Fuld konkurrentanalyse med prisoversigt, expandable cards og kildelinks → <strong onclick="show('ov-competitor')" style="color:#2563eb;cursor:pointer;">Competitor Analysis →</strong></span>
       </div>
 
       <!-- Pointer to commercial tab -->
@@ -3921,7 +4123,7 @@
 
   // ── Portfolio nav index ──
   // nav order: home, PM overview, MI overview, commercial, c1-dashboard, c1-portfolio, c1-alerts, c1-lp, c2-search(primary), c2-screening, c2-pitch, c2-dashboard(secondary=analytics)
-  const navMap = { 'home':0,'ov-c1':1,'ov-c2':2,'ov-commercial':3,'c1-dashboard':4,'c1-portfolio':5,'c1-alerts':6,'c1-lp':7,'c2-search':8,'c2-screening':9,'c2-pitch':10,'c2-dashboard':11 };
+  const navMap = { 'home':0,'ov-c1':1,'ov-c2':2,'ov-commercial':3,'ov-competitor':4,'c1-dashboard':5,'c1-portfolio':6,'c1-alerts':7,'c1-lp':8,'c2-search':9,'c2-screening':10,'c2-pitch':11,'c2-dashboard':12 };
 
   // Override show() to update nav correctly with new Portfolio item
   const _origShow = show;
@@ -4280,6 +4482,339 @@
 
   function closeModal() {
     document.getElementById('report-modal').style.display = 'none';
+  }
+
+  // ── COMPETITOR ANALYSIS ──────────────────────────────────────────
+
+  function switchCompTab(tab) {
+    document.getElementById('cpanel-c1').style.display = tab === 'c1' ? 'block' : 'none';
+    document.getElementById('cpanel-c2').style.display = tab === 'c2' ? 'block' : 'none';
+    document.getElementById('ctab-c1').classList.toggle('active', tab === 'c1');
+    document.getElementById('ctab-c2').classList.toggle('active', tab === 'c2');
+  }
+
+  const CONF_COLORS = { verified:'#5F9079', reported:'#A96E34', estimated:'#6b7280', opaque:'#B5616C' };
+  const CONF_LABELS = { verified:'Verified', reported:'Reported', estimated:'Estimated', opaque:'Opaque' };
+  const TIER_COLORS = { key:'#B5616C', adjacent:'#6E8FB5', auxiliary:'#8E83AD' };
+  const TIER_BG    = { key:'#fdf2f2', adjacent:'#eef3fb', auxiliary:'#f3f2f9' };
+  const TIER_LABELS = { key:'Key Competitors', adjacent:'On the Board', auxiliary:'Nice to Know' };
+  const TIER_DESC  = { key:'Head-to-head substitutes or imminent threats', adjacent:'In the workflow or strategically relevant, not direct product substitutes', auxiliary:'Context players, data sources, pricing anchors, or wrong-segment tools' };
+
+  const expandedCards = {};
+
+  function confBadge(level) {
+    const c = CONF_COLORS[level], l = CONF_LABELS[level];
+    return `<span style="font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;color:${c};background:${c}18;border:1px solid ${c}30;text-transform:uppercase;">${l}</span>`;
+  }
+  function tierBadge(tier) {
+    const c = TIER_COLORS[tier], l = TIER_LABELS[tier];
+    return `<span style="font-size:10px;font-weight:700;padding:3px 10px;border-radius:4px;color:${c};background:${TIER_BG[tier]};text-transform:uppercase;">${l}</span>`;
+  }
+
+  function renderCard(comp, id) {
+    const exp = expandedCards[id];
+    const tc = TIER_COLORS[comp.tier];
+    return `
+      <div onclick="toggleCard('${id}')" style="background:white;border-radius:10px;border:1px solid ${exp ? tc+'80' : '#e5e7eb'};padding:16px 20px;cursor:pointer;margin-bottom:8px;transition:border-color .2s;">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            ${tierBadge(comp.tier)}
+            <span style="color:#33343A;font-weight:600;font-size:15px;">${comp.name}</span>
+            <span style="color:#7E7F88;font-size:12px;">${comp.type}</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+            ${confBadge(comp.confidence)}
+            <span style="color:#A96E34;font-size:13px;font-weight:600;white-space:nowrap;" title="${comp.pricingDetail || ''}">${comp.pricing}</span>
+            <span style="color:#7E7F88;font-size:16px;transform:${exp ? 'rotate(180deg)' : 'none'};transition:.2s;display:inline-block;">▾</span>
+          </div>
+        </div>
+        ${exp ? renderExpanded(comp) : ''}
+      </div>`;
+  }
+
+  function renderExpanded(comp) {
+    const hasSources = comp.sources && comp.sources.length > 0;
+    const sourceLinks = hasSources ? comp.sources.map(s => s.url
+      ? `<a href="${s.url}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="font-size:10px;color:#6E8FB5;text-decoration:none;background:#eef3fb;padding:3px 8px;border-radius:4px;display:inline-block;">${s.label} ↗</a>`
+      : `<span style="font-size:10px;color:#7E7F88;background:#f3f4f6;padding:3px 8px;border-radius:4px;display:inline-block;">${s.label}</span>`
+    ).join(' ') : '';
+    const strengths = (comp.strengths||[]).map(s => `<div style="font-size:12px;color:#33343A;line-height:1.5;padding-left:12px;position:relative;margin-bottom:3px;"><span style="position:absolute;left:0;color:#5F9079;">+</span>${s}</div>`).join('');
+    const weaknesses = (comp.weaknesses||[]).map(w => `<div style="font-size:12px;color:#33343A;line-height:1.5;padding-left:12px;position:relative;margin-bottom:3px;"><span style="position:absolute;left:0;color:#B5616C;">−</span>${w}</div>`).join('');
+    return `
+      <div style="margin-top:16px;" onclick="event.stopPropagation()">
+        ${comp.desc ? `<div style="font-size:13px;color:#33343A;line-height:1.65;margin-bottom:14px;opacity:.85;">${comp.desc}</div>` : ''}
+        <div style="background:#F6F4EF;border-radius:8px;padding:12px 16px;margin-bottom:14px;border-left:3px solid #A96E34;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+            <span style="font-size:10px;color:#A96E34;font-weight:700;text-transform:uppercase;letter-spacing:.08em;">Pricing detail</span>
+            ${hasSources ? `<span style="font-size:10px;color:#7E7F88;">${comp.sources.length} source${comp.sources.length>1?'s':''}</span>` : ''}
+          </div>
+          <div style="font-size:13px;color:#33343A;line-height:1.6;">${comp.pricingDetail||'—'}</div>
+          ${comp.pricingAssumptions ? `<div style="font-size:11px;color:#7E7F88;line-height:1.5;margin-top:8px;font-style:italic;border-top:1px solid #E6E3DC;padding-top:8px;">⚠ ${comp.pricingAssumptions}</div>` : ''}
+          ${hasSources ? `<div style="margin-top:8px;border-top:1px solid #E6E3DC;padding-top:8px;display:flex;flex-wrap:wrap;gap:6px;">${sourceLinks}</div>` : ''}
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
+          <div>
+            <div style="font-size:10px;color:#5F9079;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Strengths</div>
+            ${strengths}
+          </div>
+          <div>
+            <div style="font-size:10px;color:#B5616C;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Weaknesses</div>
+            ${weaknesses}
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <div style="background:#eef3fb;border-radius:8px;padding:12px 16px;border-left:3px solid #6E8FB5;">
+            <div style="font-size:10px;color:#6E8FB5;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;">Same field as us</div>
+            <div style="font-size:12px;color:#33343A;line-height:1.55;">${comp.sameField||'—'}</div>
+          </div>
+          <div style="background:#eff8f4;border-radius:8px;padding:12px 16px;border-left:3px solid #5F9079;">
+            <div style="font-size:10px;color:#5F9079;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;">Our edge / how to win</div>
+            <div style="font-size:12px;color:#33343A;line-height:1.55;">${comp.edge||'—'}</div>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function toggleCard(id) {
+    expandedCards[id] = !expandedCards[id];
+    renderCompetitorPage();
+  }
+
+  function renderTierGroup(tier, comps, prefix) {
+    const tc = TIER_COLORS[tier];
+    const items = comps.filter(c => c.tier === tier);
+    if (!items.length) return '';
+    return `
+      <div style="margin-bottom:24px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap;">
+          <div style="width:4px;height:18px;border-radius:2px;background:${tc};flex-shrink:0;"></div>
+          <span style="color:${tc};font-size:14px;font-weight:700;">${TIER_LABELS[tier]}</span>
+          <span style="color:#7E7F88;font-size:12px;">— ${TIER_DESC[tier]}</span>
+        </div>
+        ${items.map((c,i) => renderCard(c, prefix+'_'+tier+'_'+i)).join('')}
+      </div>`;
+  }
+
+  function renderCompetitorPage() {
+    ['c1','c2'].forEach(concept => {
+      const comps = concept === 'c1' ? c1Competitors : c2Competitors;
+      const el = document.getElementById(concept+'-cards');
+      if (!el) return;
+      el.innerHTML = ['key','adjacent','auxiliary'].map(tier => renderTierGroup(tier, comps, concept)).join('');
+    });
+  }
+
+  // ── C1 COMPETITOR DATA ──────────────────────────────────────────
+  const c1Competitors = [
+    { tier:'key', name:'iLEVEL (S&P Global)', type:'Global incumbent', pricing:'~230k DKK base + ~69k DKK/bruger/år', confidence:'reported',
+      desc:'S&P Globals portfolio monitoring platform for alternative investments, brugt af 700+ GPs og LPs globalt. Automatiserer data collection fra portcos via templates og email-workflows, med dashboards, valuation tools og Cambridge Associates benchmarking. Har for nylig tilføjet AI-powered Document Search.',
+      pricingDetail:'Starter ved ~$36k/år (~230k DKK) for minimal deployment. Ekstra brugere ~$900/bruger/måned ($10,8k/år, ~69k DKK). Platform fees $50–200k+ (~320k–1,28M DKK) for store firmaer.',
+      pricingAssumptions:'iLEVEL publicerer ikke priser. $36k base og $900/bruger/måned kommer fra NetNetWeb. $50–200k+ platform range fra Planr industry guide. DKK konverteret ved USD/DKK 6,42.',
+      sources:[{label:'NetNetWeb — iLEVEL pricing analysis',url:'https://www.netnetweb.com/content/blog/portfolio-management-software-optimization-for-financial-services'},{label:'Planr — portfolio monitoring pricing guide',url:'https://planr.com/how-to-choose-portfolio-monitoring-software-in-2025/'},{label:'S&P Global — iLEVEL product page',url:'https://www.spglobal.com/market-intelligence/en/solutions/products/ilevel'}],
+      strengths:['Market leader, 700+ investors','AI Document Search (aug 2025)','Cambridge Associates benchmarking','Managed Data Services team','Peer Comparables linking til Capital IQ'],
+      weaknesses:['Template-based ingestion — ingen live ERP-pull','US/large-cap fokus, ingen Nordic SMB ERP-integration','Tung implementation (måneder)','Overpriced for mid-market Nordic fonde'],
+      sameField:'Begge producerer en consolidated portfolio view med dashboards, KPIs og benchmarking for en PE fonds GP-team. Hvis en Nordic fond allerede kører iLEVEL, konkurrerer vi om det samme monitoring budget-line.',
+      edge:'iLEVELs data ankommer via templates portco-CFO\'en udfylder kvartalsvist. Vi puller live tal direkte fra e-conomic — ingen chasing, ingen lag, granuleret til transaktionen. Vind ved at targete Nordic mid-market fonde for hvem iLEVEL er for dyrt og for US-centreret.' },
+
+    { tier:'key', name:'Chronograph', type:'Global incumbent', pricing:'~320k–1,28M DKK/år platform fee', confidence:'reported',
+      desc:'Cloud-baseret portfolio monitoring platform brugt af majoriteten af verdens største LPs og GPs. Specialiserer sig i automatisk udtræk af data fra ustrukturerede dokumenter (PDFs, kvartalrapporter) til strukturerede, auditable datasæt.',
+      pricingDetail:'Platform fee: $50–200k+/år (~320k–1,28M DKK). Per-selskab $5–15k/år (~32k–96k DKK). Per-bruger add-ons $500–2.000/bruger/måned (~3,2k–12,8k DKK).',
+      pricingAssumptions:'Chronograph publicerer ikke priser. Ranges fra Planr industry guide — kategori-benchmarks, ikke Chronograph-bekræftede. DKK ved USD/DKK 6,42.',
+      sources:[{label:'Planr — portfolio monitoring pricing guide',url:'https://planr.com/how-to-choose-portfolio-monitoring-software-in-2025/'},{label:'Chronograph — official site',url:'https://www.chronograph.pe/'}],
+      strengths:['Stærk UX, cloud-native','Automatisk udtræk fra ustrukturerede PDFs','Valuation + covenant monitoring','God LP + GP dækning på tværs af asset classes'],
+      weaknesses:['Samme template-limitation — data fra portco-rapportering','US-forankret salg/support','Ingen Nordic ERP-integration','Enterprise pricing ekskluderer mid-market'],
+      sameField:'Direkte overlap på kernelovgivningen: turn messy PortCo reporting into clean dashboards. Chronograph er best-in-class til at strukturere data der ankommer.',
+      edge:'De er brillante til at strukturere data — men dataene ankommer stadig som kvartalsvise PDFs og templates. De kan ikke se imellem rapporteringsperioder. Vi har det underliggende ledger kontinuerligt. Vind på freshness og pris for sub-€500M Nordic fonde.' },
+
+    { tier:'key', name:'Cobalt (FactSet)', type:'PE portfolio monitoring', pricing:'~320k–1,28M DKK/år (est.)', confidence:'estimated',
+      desc:'Boston-baseret portfolio monitoring platform overtaget af FactSet i 2021, deployed til 100+ PE/VC firmaer. Fokuserer på intuitiv data collection (automatiseret email sequencing, konfigurerbare templates), tilpassede dashboards og on-demand rapportering.',
+      pricingDetail:'Ingen publiceret prissætning. FactSet overtog Cobalt okt 2021. Kategori-prissætning: $50–200k+ platform fee (~320k–1,28M DKK) + $5–15k per portco (~32k–96k DKK).',
+      pricingAssumptions:'Cobalt publicerer ikke priser. Estimat fra Planr kategori-benchmarks. DKK ved USD/DKK 6,42.',
+      sources:[{label:'FactSet — Cobalt acquisition',url:'https://investor.factset.com/news-releases/news-release-details/factset-acquires-cobalt-software-inc'},{label:'Cobalt — official site',url:'https://www.cobalt.pe/'}],
+      strengths:['100+ firmaer på tværs af PE, VC, credit, infra','FactSet data-ecosystem bag sig','Rost UX og kundeservice','Hamilton Lane LP benchmarking'],
+      weaknesses:['Samme template-baserede collection som iLEVEL/Chronograph','Ingen Nordic ERP-integration','US-centreret — Boston HQ, ingen Nordic tilstedeværelse'],
+      sameField:'En direkte, fuldt-udstyret portfolio monitoring-konkurrent — samme buyer, samme dashboards, samme benchmarking-løfte som iLEVEL og Chronograph.',
+      edge:'Identisk strukturelt hul: data er collected, ikke connected. Vi spørger ikke portco\'en om noget — tallene er allerede i e-conomic. Vind hvor Cobalt\'s US sales motion og prissætning ikke nå: Nordic lower-mid-market fonde.' },
+
+    { tier:'key', name:'Excel + Email', type:'Status quo', pricing:'Gratis (1–2 timer/portco/måned skjult omkostning)', confidence:'verified',
+      desc:'Det faktiske incumbent for de fleste lower-mid-market Nordic PE fonde. Portco-CFO\'er emailer Excel-templates månedligt eller kvartalsvist; en analytiker på fonden konsoliderer manuelt. Nordic Alpha prøvede Tableau + Alteryx og opgav det.',
+      pricingDetail:'Ingen procurement-omkostning. Reel omkostning er skjult i FTE-tid: ~1–2 timer per portco per måned for manuel collection og reconciliation.',
+      pricingAssumptions:null,
+      sources:[{label:'Nordic Alpha interview (project research)',url:null}],
+      strengths:['Zero procurement friction','Familiær — alle analytikere kender det','Ingen vendor lock-in','Ingen IT-implementation'],
+      weaknesses:['1–2 timer/portco/måned manuel review','Begravede signaler — ingen alerting eller benchmarking','Version control kaos','Bryder ned over ~10 portcos'],
+      sameField:'Vi out-Excel\'er ikke Excel på fleksibilitet eller fortrolighed. For en fond med 3 portcos og en permanent analytiker glad for at gøre det manuelt, er status quo "good enough."',
+      edge:'Vi gør 1–2 timer per portco per måned til nul, med live data og automatisk benchmarking de ikke kan få manuelt. Dette er den reelle konkurrent — pitch time saved og signals surfaced. DIY-fiasko-historien (Nordic Alpha) er det stærkeste proof point.' },
+
+    { tier:'adjacent', name:'Crediwire', type:'Nordic fintech — data-connector (IKKE PE-monitering)', pricing:'Gratis → 699 DKK/md (SME); fra 9.000 DKK/år (revisor); bank = custom', confidence:'verified',
+      desc:'VIGTIGT: Crediwire er IKKE et portfolio monitoring-produkt for PE-fonde — det er et benchmarking- og data-connector-værktøj for SMV\'er, revisorer og banker. Det forbinder til 80%+ af danske regnskabssystemer (inkl. e-conomic). Opført her som strategisk vigtig aktør: vores API-kunde, et proof point for at live data sælger, og en build-vs-buy/acquire-overvejelse.',
+      pricingDetail:'Virksomhedsplaner: 0–699 DKK/måned. Revisor-tier: fra 9.000 DKK/år + 224 DKK/profil/måned. Bank-tier: enterprise custom. Backed by Nordea. ~14k forbundne virksomheder.',
+      pricingAssumptions:null,
+      sources:[{label:'Crediwire.com — pricing page (verified)',url:'https://www.crediwire.com/price'},{label:'Crunchbase — Crediwire funding',url:'https://www.crunchbase.com/organization/crediwire'}],
+      strengths:['Eneste Nordic aktør der allerede puller near-live regnskabsdata','Forbinder til 80%+ af danske regnskabssystemer','Backed by Nordea','Tidligere e-conomic CTO ombord'],
+      weaknesses:['Ingen PE portfolio monitoring-produkt','Kun ~14k virksomheder vs. e-conomics 270k+','Kan ikke skalere uden e-conomic API-adgang'],
+      sameField:'I dag ingen — Crediwire sælger ikke et PE portfolio monitoring-værktøj. Overlap er rent på den underliggende kapabilitet (forbinde til regnskabssystemer for live data).',
+      edge:'Vi ejer den datakilde de afhænger af, og 270k+ virksomheder vs. deres 14k. Det strategiske spørgsmål er ikke "hvordan slår vi deres produkt" — det er om vi skal overtage dem, begrænse API-adgang, eller blot bygge det PE-vendte produkt de aldrig lavede.' },
+
+    { tier:'adjacent', name:'Allvue Systems', type:'All-in-one fund platform', pricing:'Enterprise custom (est. ~320k–1,28M DKK/år)', confidence:'estimated',
+      desc:'Comprehensive investment management platform der bundler fund accounting, portfolio monitoring, investor portal og compliance. Mere et back-office/operations-system end et investment intelligence-værktøj — optimeret til audit trails og LP-rapportering snarere end real-time beslutninger.',
+      pricingDetail:'Contact-for-pricing. Sammenlignelig FundCount starter ved $34,9k/år (~224k DKK). Kategori-platform fees $50–200k+ (~320k–1,28M DKK).',
+      pricingAssumptions:'Allvue publicerer ikke priser. Estimat baseret på FundCount sammenligning og Planr kategori-benchmarks. DKK ved USD/DKK 6,42.',
+      sources:[{label:'FundCount vs Allvue (pricing ref)',url:'https://fundcount.com/fundcount-vs-allvue-systems/'},{label:'Allvue — portfolio monitoring page',url:'https://www.allvuesystems.com/solutions/portfolio-monitoring/'}],
+      strengths:['All-in-one: accounting + monitoring + portal','Stærk for compliance og audit','Integreret IRR Hub og scenario analytics'],
+      weaknesses:['Løser for audit, ikke investeringsbeslutninger','Overkill for mid-market','Tung implementation','Ingen Nordic ERP-integration'],
+      sameField:'Inkluderer et portfolio monitoring-modul, så det nominelt overlapper — en fond der standardiserer på Allvue for fund admin bruger muligvis dets monitoring frem for at købe vores.',
+      edge:'Allvue købes af CFO/back-office for compliance; vi købes af deal/value-creation-teamet for live indsigt. Vind ved at være det skarpe, friske investment-decision layer der sidder oven på (ikke imod) deres fund admin.' },
+
+    { tier:'adjacent', name:'Planr', type:'AI-native newcomer', pricing:'Ikke offentlig (kategori: ~320k–1,28M DKK/år)', confidence:'opaque',
+      desc:'AI-native portfolio intelligence platform der positionerer sig som next-generation alternativ til Chronograph, eFront og iLEVEL. Hævder real-time data-integration, predictive analytics og natural-language queries — bygget omkring AI frem for retrofitted. Ny aktør, begrænset track record.',
+      pricingDetail:'Ingen publiceret prissætning. Kategori-estimat kun ($50–200k+, ~320k–1,28M DKK), baseret på Planrs eget publicerede kategori-guide.',
+      pricingAssumptions:'Ingen prisdata eksisterer. Kategori-estimat kun. DKK ved USD/DKK 6,42.',
+      sources:[{label:'Planr — official site',url:'https://planr.com/'},{label:'Planr — pricing guide (category)',url:'https://planr.com/how-to-choose-portfolio-monitoring-software-in-2025/'}],
+      strengths:['AI-native, ikke retrofitted','Natural-language portfolio queries','Predictive forecasting claims','Fast implementation promise'],
+      weaknesses:['Ny aktør, begrænset track record','Ingen Nordic tilstedeværelse eller ERP-integrationer','Uklart data ingestion model','Uprøvet i skala'],
+      sameField:'Samme vision vi har — moderne, AI-native portfolio intelligence. Hvis de nail\'er live data ingestion, bliver overlappet direkte.',
+      edge:'Deres "real-time" afhænger stadig af data der fodres ind; vi har en strukturel live kilde via e-conomic som en software-only startup ikke kan replikere. Vind ved at eje røret, ikke kun dashboardet.' },
+
+    { tier:'auxiliary', name:'Rundit (Helsinki)', type:'Nordic-native VC/PE portfolio tool', pricing:'Custom (est. lav-mid ti-tusinde DKK/år)', confidence:'opaque',
+      desc:'Helsinki-baseret portfolio management og LP-rapporteringsplatform, nu del af Greenstep (Nordic regnskabs-/rådgivningsgruppe). Brugt af 2.300+ fund managers på tværs af 35 lande. Primært VC-orienteret — founder updates og runway snarere end PE operational depth.',
+      pricingDetail:'Custom pricing, ikke publiceret. Positioneret som tilgængeligt vs. incumbents; sandsynligvis lav-til-mid ti-tusinde DKK/år givet VC/small-fund fokus.',
+      pricingAssumptions:'Ingen prisdata tilgængeligt. €1,6M seed-stage virksomhed positioneret under enterprise incumbents.',
+      sources:[{label:'Rundit — pricing page',url:'https://rundit.com/pricing-investor/'}],
+      strengths:['Nordic-native, Greenstep ecosystem','2.300+ fund managers i 35 lande','ILPA/Invest Europe LP-rapporter','SFDR/ESG built in'],
+      weaknesses:['Primært VC-orienteret','Letvægt for PE-operationer','Lille team','Ingen ERP-integrationer eller live data'],
+      sameField:'Det tætteste på et Nordic-native portfolio-værktøj — samme region, samme brede kategori, og Greenstep giver det regnskabsverdens-nærhed.',
+      edge:'Bygget til VC-rapporteringskadence, ikke PE operational depth, og ingen live ERP-data. Vind på PE-grade operational monitoring og freshness.' },
+
+    { tier:'auxiliary', name:'PitchBook (Morningstar)', type:'Data terminal', pricing:'~77k–449k DKK/år', confidence:'reported',
+      desc:'Morningstar-ejet finansielt data-terminal (10,1M+ virksomheder, 2,9M+ deals). Stærk på PE/VC deal flow, fund performance og exit comps. Oplistet her fordi nogle fonde bruger det til portfolio benchmarking — men det er et research-værktøj, ikke et operationelt monitoring-platform.',
+      pricingDetail:'$12k–$70k+/år (~77k–449k DKK). Se Concept 2 for fuld pricing detail.',
+      pricingAssumptions:'Se Concept 2-oplistning for fuld sourcing. DKK ved USD/DKK 6,42.',
+      sources:[{label:'Startup Yeti — PitchBook pricing (Vendr data)',url:'https://www.startupyeti.com/startup/the-cost-of-pitchbook'}],
+      strengths:['Portfolio benchmarking, fund performance'],
+      weaknesses:['Research-værktøj, ikke monitoring','Ingen live portco data'],
+      sameField:'Overlapper kun på benchmarking — sammenligning af portco med markedsmultiples.',
+      edge:'PitchBook fortæller dig om markedet; det fortæller dig ikke hvad der sker inde i dine portcos denne måned. Vi gør. Komplementær mere end konkurrerende.' },
+  ];
+
+  // ── C2 COMPETITOR DATA ──────────────────────────────────────────
+  const c2Competitors = [
+    { tier:'key', name:'Valu8 (Datasite / Grata)', type:'Nordic-built private-market intelligence', pricing:'Quote-based (est. ~75k–190k DKK/seat/år)', confidence:'estimated',
+      desc:'Den mest direkte Nordic trussel. Stockholm-founded (2011) private market intelligence platform med proprietære data på 60–100M+ europæiske virksomheder, der betjener 600+ kunder — primært PE-firmaer, investment banks og corporate M&A-teams med stærk Nordic adoption. Overtaget af Datasite i maj 2026 og integreres med Grata (20M+ virksomheder globalt). Allerede overtaget danske Firmnav\'s kundebase i 2023.',
+      pricingDetail:'Ingen offentlig prissætning. Listet på Datarade uden tal. Sandsynligvis seat-baseret i linje med europæiske private-market intelligence peers — est. €10–25k/seat (~75k–187k DKK). Post-Datasite, forvent bundling med Grata.',
+      pricingAssumptions:'Ingen publiceret prissætning overhovedet. Estimat trianguleret fra peer-positionering (Gain.pro, Grata) og kategorien. Genuint usikkert — verificer direkte. DKK ved EUR/DKK 7,46.',
+      sources:[{label:'Datasite — Valu8 acquisition (maj 2026)',url:'https://www.datasite.com/en/company/news/datasite-acquires-valu8-to-further-accelerate-global--ai-driven-deal-sourcing-and-execution'},{label:'Valu8 — product page',url:'https://www.valu8group.com/index.php/valu8-company-intelligence/'},{label:'Datarade — Valu8 pricing/data',url:'https://datarade.ai/data-providers/valu8/profile'}],
+      strengths:['Nordic-built, stærk Nordic adoption','60–100M+ europæiske virksomheder, finansielle + ownership','Purpose-built til PE/M&A sourcing og execution','Nu backed by Datasite/Grata global scale','Allerede dansk kundebase (Firmnav)','AI-enriched, 50+ europæiske datakilder'],
+      weaknesses:['Data aggregeret fra filings — stadig annual/stale at source','Micro-SMB depth begrænset til hvad der er filed','Integration-risiko under Datasite/Grata-merger','Ingen live ledger data'],
+      sameField:'Dette er det tætteste head-to-head: Nordic private-company finansielle data og ownership til target sourcing og screening, solgt til præcis vores buyer. Post-Datasite har de scale, brand og en eksisterende Nordic + dansk base.',
+      edge:'Deres finansielle data kommer fra filed annual accounts aggregeret på tværs af 50+ sources — 12–18 måneder stale by nature. Vi har det live ledger, opdateret månedligt, for de 270k+ SMV\'er på e-conomic. Vind på freshness og micro-SMB depth. En potentiel partner/overtager at holde øje med givet Datasites appetit.' },
+
+    { tier:'key', name:'Gain.pro', type:'European private-market intelligence', pricing:'Quote-based (est. ~112k–224k DKK/seat/år)', confidence:'estimated',
+      desc:'Amsterdam-founded private-market intelligence platform der kombinerer AI med analytiker-research på tværs af 4M+ private virksomheder. Brugt af 100% af MBB og Big-4 firmaer og 80% af top-20 M&A advisory houses. Vokser hurtigt med kontorer i Europa, USA og Indien.',
+      pricingDetail:'Ikke publiceret. G2-anmeldelser beskriver det som "quite pricey." Est. €15–30k/seat (~112k–224k DKK), positioneret mellem PitchBook og Mergermarket.',
+      pricingAssumptions:'Ingen offentlig prissætning. Estimat fra G2 sentiment ("expensive"), peer-positionering og Prospeos ~$120M revenue estimat. €15–30k rangen er et bedste gæt — verificer via sales call. DKK ved EUR/DKK 7,46.',
+      sources:[{label:'G2 — Gain.pro reviews',url:'https://www.g2.com/products/gain-pro-gain/reviews'},{label:'Gain.pro — product page',url:'https://www.gain.pro/product/data-insight'}],
+      strengths:['Dyb europæisk privat dækning (4M+)','AI + analytiker-kurateret','Publicerer citerede Nordic PE-analyser','DealCloud/Affinity CRM-integration','Hurtigt voksende, stærkt brand'],
+      weaknesses:['Dækning tynd uden for Europa','Dyr for mindre teams','Filing-baseret data — ingen live ledger','Nordic micro-SME depth sandsynligvis tynd'],
+      sameField:'Direkte overlap på europæisk/Nordic private-company intelligence for deal teams. Hvis de udvider dybere ind i Nordic SMB peer-finansielle data, udvides overlappet med os hurtigt.',
+      edge:'Samme wedge som Valu8: deres data er annually-refreshed filings; vores er monthly-fresh ledger data. Vind på freshness og SMB granularitet. Højeste prioritet partner-eller-konkurrencer-samtale — tag på et opkald inden for 30 dage.' },
+
+    { tier:'key', name:'Inven', type:'AI-native deal-sourcing platform (Helsinki)', pricing:'~64k DKK/seat/år list (kraftigt diskonteret)', confidence:'estimated',
+      desc:'Den mest on-the-nose Concept 2-konkurrent. Helsinki-baseret, Nordic, AI-native deal-sourcing platform founded 2022 af ex-McKinsey/BCG-konsulenter; rejste $14,4M, ~100 medarbejdere, 700–1.000+ PE/IB/advisory/VC kunder. Scaner millioner af websites plus aggregerede europæiske finansielle data. 21–28M virksomheder, 430M+ owner/executive contacts.',
+      pricingDetail:'List ~$10k/bruger/år (~64k DKK), årskontrakter. Angiveligt discounterer op til 70% i forhandling.',
+      pricingAssumptions:'$10k/bruger list-figuren kommer fra CorpDev.ai, en Inven-konkurrents sammenligningsside — så retningsgivende og muligvis skævt. Inven\'s egne materialer siger prissætning er custom. DKK ved USD/DKK 6,42.',
+      sources:[{label:'EU-Startups — Inven €11,2M Series A',url:'https://www.eu-startups.com/2025/05/inven-a-finnish-ai-startup-raises-e11-2-million-for-their-deal-sourcing-platform/'},{label:'CorpDev.ai — Inven pricing comparison (rival source)',url:'https://www.corpdev.ai/corpdev-ai-vs-inven'},{label:'G2 — Inven reviews',url:'https://www.g2.com/products/inven/reviews'}],
+      strengths:['AI-native natural-language search — sources 10× hurtigere','21–28M virksomheder + 430M+ contacts','Intent signals — markerer ejere der sandsynligvis vil sælge','Nordic (finsk), velfinansieret, hurtigt voksende'],
+      weaknesses:['Data fra web-scraping + filed financials — IKKE live ledger','Micro-SME finansiel depth begrænset til filings','AI-resultatkvalitet forringes på lange lister (ifølge G2)'],
+      sameField:'Head-to-head: samme use case (find og evaluer M&A-mål), samme buyer (PE/IB/advisors), samme Nordic region, AI-native. Hvis et Nordic M&A-team køber et sourcing-værktøj, er Inven på shortlisten.',
+      edge:'Inven fortæller dig en virksomhed eksisterer, hvad den laver og hvem du skal ringe til — fra web og filed accounts. Vi har de faktiske live finansielle data fra ledgeren: aktuel revenue og margin-trajektori, ikke fjor\'s filing. Vind på finansiel depth + freshness for Nordic SMV\'er. Potentielt komplementær — vurder partner-eller-konkurrere.' },
+
+    { tier:'key', name:'PitchBook (Morningstar)', type:'PE/VC data terminal', pricing:'~77k–449k DKK/år (~96k–128k DKK solo seat)', confidence:'reported',
+      desc:'Den dominerende PE/VC data-terminal globalt (10,1M+ virksomheder, 2,9M+ deals). Deal sourcing, screening, comps, investor profiles plus dedikerede Nordic PE/VC-rapporter. Men Nordic private-company regnskabsdata er stale — bekræftet af Nordic Alpha der kritiserede dybden for Nordic SMV\'er.',
+      pricingDetail:'$12k–$70k+/år (~77k–449k DKK). Solo seat ~$15–20k (~96k–128k DKK). Team ~$25k for 3 seats + $7k/ekstra. Enterprise $70–124k+ (~449k–800k DKK). Median kontrakt ~$30k (~193k DKK, Vendr n=114).',
+      pricingAssumptions:'PitchBook publicerer ikke priser men er bedst-dokumenteret. Vendr\'s 114 verificerede transaktioner giver medianen ($30k) og gennemsnittet ($56k). DKK ved USD/DKK 6,42.',
+      sources:[{label:'Startup Yeti — PitchBook pricing (Vendr, n=114)',url:'https://www.startupyeti.com/startup/the-cost-of-pitchbook'},{label:'Costbench — PitchBook tiers',url:'https://costbench.com/software/financial-data-terminals/pitchbook/'},{label:'ITQlick — PitchBook pricing + TCO',url:'https://www.itqlick.com/pitchbook/pricing'}],
+      strengths:['Stærkeste globale PE/VC deal data','Dedikerede Nordic rapporter (DK/SE/NO/FI)','Daglige VC-valueringsestimater','Stærk sourcing/screening/comps','1.800-personers data-team'],
+      weaknesses:['Nordic private regnskabsdata stale','Svag for SMB pitch prep','Revenue ofte manglende for Nordic SMV\'er','Ingen live data — kun filings'],
+      sameField:'Deal teams bruger PitchBook til sourcing og comps — præcis vores use case i den øvre del. Det er den default-terminal buyeren allerede har.',
+      edge:'Søg efter et €15M dansk privat SaaS-selskab og PitchBook defaulter til børsnoterede proxies. Vi leverer de faktiske finansielle data, månedligt. Vind på Nordic SMB depth og freshness; positioner som det layer PitchBook ikke kan nå.' },
+
+    { tier:'key', name:'S&P Capital IQ Pro', type:'Financial data terminal', pricing:'~77k–193k DKK/bruger/år', confidence:'reported',
+      desc:'S&P Globals flagship finansielle intelligence platform (109k+ offentlige, 58M+ private virksomheder) med dyb modellering, screening og analytiker-favoritten Excel plug-in. Nordic private SMB-dækning er tynd — defaulter til børsnoterede proxies når aktuelle tal mangler.',
+      pricingDetail:'Essentials ~$12k (~77k DKK), Standard ~$20k (~128k DKK), Advanced ~$25k (~160k DKK), op til ~$30k/bruger (~193k DKK). Enterprise custom.',
+      pricingAssumptions:'S&P publicerer ikke priser. Tier-breakdown fra Costbench (verificeret mod 18 sources). DKK ved USD/DKK 6,42.',
+      sources:[{label:'Costbench — Capital IQ pricing (18 sources)',url:'https://costbench.com/software/financial-data-terminals/sp-capital-iq/'},{label:'FATFIRE — Capital IQ pricing',url:'https://fatfire.com/sp-capital-iq-pricing/'}],
+      strengths:['Dybest modellering + screening','109k+ offentlige + 58M private records','Excel plug-in embedded i workflows','Integrerer Preqin PE fund data'],
+      weaknesses:['Nordic private SMB-dækning tynd','Revenue ofte manglende for danske privates','Kun annual filings for privates'],
+      sameField:'Brugt til screening, comps og modellering på targets — vores core use case i den større ende. Excel plug-in\'en er dybt vanemæssig for analytikere.',
+      edge:'Enorm bredde, nul real-time Nordic micro-enterprise data. Vi er den eneste mulige kilde til live danske SMB-finansielle data. Kopiér Excel plug-in-mønstret; vind på de data de strukturelt mangler.' },
+
+    { tier:'key', name:'Mergermarket (ION Analytics)', type:'M&A intelligence / deal origination', pricing:'Est. ~149k–224k DKK/seat/år', confidence:'estimated',
+      desc:'Branchestandardens M&A intelligence service (stiftet 1999, nu del af ION Analytics med Dealogic, Debtwire, Infralogic). 600 journalister og analytikere leverer proprietær pre-deal intelligence. Et brand-anker, men mid/large-cap fokuseret med minimal Nordic SMB-dækning.',
+      pricingDetail:'Ikke publiceret nogen steder. Est. €20–30k/seat (~149k–224k DKK), trianguleret fra G2-anmeldelse der bemærker det er dyrere end Capital IQ.',
+      pricingAssumptions:'Mergermarks prissætning er fuldstændig uigennemsigtig — ikke på G2, Vendr eller Costbench. DETTE ER DET SVAGESTE PRISESTIMAT i analysen. Verificer via sales call. DKK ved EUR/DKK 7,46.',
+      sources:[{label:'G2 — Mergermarket pricing/reviews',url:'https://www.g2.com/products/mergermarket/pricing'},{label:'ION Analytics — platform overview',url:'https://ionanalytics.com/'}],
+      strengths:['600-journalist netværk til pre-deal signaler','Branche-standard league tables','AI exit-prediction (6–18 måneder)','Brand alle M&A-professionelle kender'],
+      weaknesses:['Begrænset Nordic privat depth','Stale for private SMV\'er','Prissætning vs. value betvivlet','Kundserviceklager'],
+      sameField:'Deal origination er overlappet — begge hjælper et deal team med at finde muligheder. Mergermarket ejer mid/large-cap, journalist-sourcede enden.',
+      edge:'Nul Nordic SMB finansiel dækning. Vores data afslører acquisition-klar SMV\'er (stærk vækst, aldrende ejere, ingen succession) — signaler usynlige for journalister. Pris under Mergermarket med mere Nordic depth.' },
+
+    { tier:'key', name:'Junior Analyst + Manuel Scraping', type:'Status quo (in-house)', pricing:'Gratis (skjult omkostning: analytiker FTE-tid)', confidence:'verified',
+      desc:'Det faktiske status quo hos de fleste boutique Nordic M&A-firmaer og mindre PE-shops. En junior analytiker scraper manuelt CVR/Virk.dk, downloader årsrapporter, tjekker LinkedIn og cross-referencer Proff.dk. Dage per target. Den reelle ting vi fortrænger.',
+      pricingDetail:'Ingen procurement-omkostning. Reel omkostning er analytiker FTE-tid — dage per target. Sætter det psykologiske prisloft.',
+      pricingAssumptions:null,
+      sources:[{label:'Project interview research',url:null}],
+      strengths:['Zero procurement cost','Fleksibel','Ingen vendor-godkendelse nødvendig'],
+      weaknesses:['Dage per target','Kun offentlige filings (12–18 måneder stale)','Ingen benchmarking','Inkonsistent kvalitet'],
+      sameField:'Samme output vi lover — et target-profil med finansielle data og peers. For et firma med billig junior-tid er "gratis" en reel konkurrent.',
+      edge:'To dages analytiker-arbejde bliver to minutter, med data ingen scraping kan nå (live, månedlig, micro-SME). Nemmere salg end at fortrænge en terminal — men gratis-labor-ankeret sætter et loft for prisen.' },
+
+    { tier:'key', name:'Off-the-shelf M&A advisor reports', type:'Status quo (outsourced service)', pricing:'Projektbaseret (est. ~50k–500k+ DKK per rapport/mandat)', confidence:'estimated',
+      desc:'I stedet for et data-abonnement køber mange fonde og corporates pre-made sektorstudier, target longlists eller kommissionerede market maps fra M&A-rådgivere og corporate-finance boutiques. En service-alternativ til at bygge market intelligence in-house.',
+      pricingDetail:'Projektbaseret, ingen listepris. Et pre-made sektor-rapport kan koste ~50–150k DKK; et skræddersyet target-screening mandat 150–500k+ DKK.',
+      pricingAssumptions:'Ingen standardiseret prissætning — dette er et services-marked. Ranges er informerede estimater baseret på typiske corporate-finance advisory projektgebyrer.',
+      sources:[{label:'Deloitte — ValueD / deal advisory tech (context)',url:'https://www.deloitte.com/na/en/products/explore-the-possibilities-that-come-with-valued.html'}],
+      strengths:['Tilpasset analyse + menneskelig dom','Ingen tooling at lære eller vedligeholde','Rådgiver-relationer og deal access'],
+      weaknesses:['Dyr per engagement, skalerer ikke','Langsom — uger per rapport','Stale ved levering (filing-baseret)','One-off, ikke kontinuerligt opdateret'],
+      sameField:'Når en fond ønsker et Nordic sektorkort eller target longlist, kommissionerer de det ofte. Det er præcis det output vores platform producerer.',
+      edge:'En rådgiver-rapport er et stale snapshot leveret på uger; vi er en live, self-serve, kontinuerligt opdateret kilde til en brøkdel af per-use omkostningen.' },
+
+    { tier:'adjacent', name:'Bureau van Dijk / Orbis (Moody\'s)', type:'Global private company database', pricing:'Enterprise custom (est. ~149k–597k DKK/år)', confidence:'estimated',
+      desc:'Moody\'s-ejet global company database (625M+ entities, 170+ sources) med standardiserede finansielle data til cross-border sammenligning. Go-to for compliance teams, Big-4 og akademikere. Inkluderer et Orbis M&A-modul.',
+      pricingDetail:'Enterprise sales kun, fuldstændig uigennemsigtig. Est. €20–80k+/år (~149k–597k DKK) baseret på sammenlignelige enterprise data-platforme og "høj omkostning" bruger-feedback.',
+      pricingAssumptions:'Fuldstændig uigennemsigtig. Estimat fra sammenlignelige platforme og Moody\'s €3B overtageelse der indikerer premium. Bracket, ikke et punkt-estimat. DKK ved EUR/DKK 7,46.',
+      sources:[{label:'Moody\'s — Orbis product page',url:'http://www.bvdinfo.com/en-us/our-products/company-information/international-products/orbis'}],
+      strengths:['625M+ virksomheder worldwide','Standardiserede cross-border finansielle data','Dyb ownership/UBO data'],
+      weaknesses:['Kun annual filings — ingen freshness','Ingen peer-matching workflow for M&A','Rigid, ikke API-first'],
+      sameField:'Overlapper på private-company finansielle data og ownership til screening, især cross-border. Et deal team med Orbis kan pulle Nordic filings fra det.',
+      edge:'Bredde vs. vores dybde og freshness. De standardiserer filed annual accounts; vi har den månedlige ledger inden det bliver en filing. Vind på Nordic SMB freshness og workflow.' },
+
+    { tier:'auxiliary', name:'Risika', type:'Nordic ML credit scoring (IKKE target identification)', pricing:'~448k DKK/land/år; ~1,12M DKK alle Nordics', confidence:'verified',
+      desc:'VIGTIGT: Risika er et credit risk-værktøj, ikke et market intelligence/target-identification platform. Det scorer 20M+ Nordic virksomheder for kreditværdighed, konkurs og svindelrisiko. Inkluderet her kun som Nordic DaaS-prissætningsanker.',
+      pricingDetail:'€60k/år per Nordic land (~448k DKK), €150k for alle fire (~1,12M DKK). Årlig SaaS, quote-based.',
+      pricingAssumptions:null,
+      sources:[{label:'Risika — official site',url:'https://risika.com/'}],
+      strengths:['ML credit scoring (Risika Score)','20M+ Nordic virksomheder','ERP/CRM-integrationer'],
+      weaknesses:['Modellerer på 6–18 måneder stale filings','Credit risk, ikke target ID eller M&A','Ingen live ledger data'],
+      sameField:'I det væsentlige ingen for market intelligence — Risika svarer "betaler denne virksomhed sine regninger," ikke "er dette et godt acquisition target."',
+      edge:'Ikke en konkurrent til Concept 2 — bibeholdt som prissætningsanker. Dens €60k/land-prissætning ankrer hvad Nordic buyers betaler for company data.' },
+
+    { tier:'auxiliary', name:'CVR / Brønnøysund / Bolagsverket', type:'Offentlige registre', pricing:'Gratis', confidence:'verified',
+      desc:'Offentlige erhvervsregistre i Danmark (CVR/Virk.dk), Norge (Brønnøysund) og Sverige (Bolagsverket). Den autoritative kilde til registreringsdata, årsregnskaber, ownership og bestyrelser. Alle andre aktører her — Valu8, Gain.pro, PitchBook, Orbis, Risika — afhænger ultimativt af disse som primær kilde.',
+      pricingDetail:'Gratis.',
+      pricingAssumptions:null,
+      sources:[{label:'CVR — Virk.dk',url:'https://datacvr.virk.dk/'}],
+      strengths:['Gratis','Autoritativ/officiel'],
+      weaknesses:['12–18 måneder stale','Rådata, ingen analytics'],
+      sameField:'Ikke en konkurrent — det base data-lag alle bygger på, os inkluderet.',
+      edge:'Vi har de live data der bliver en CVR-filing 12–18 måneder senere. Vores fulde freshness-fordel er defineret relativt til dette register.' },
+  ];
+
+  // Initial render
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderCompetitorPage);
+  } else {
+    renderCompetitorPage();
   }
 </script>
 
