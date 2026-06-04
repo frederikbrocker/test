@@ -549,104 +549,28 @@
     <div class="home-hero" style="flex-direction:row;align-items:center;gap:48px;padding:44px 40px;">
       <!-- Left: headline -->
       <div style="flex:1;min-width:0;">
-        <div class="eyebrow" style="margin-bottom:14px;">Midway Check-in · e-conomic / Visma Ventures</div>
+        <div class="eyebrow" style="margin-bottom:14px;">e-conomic / Visma Ventures</div>
         <h2 style="font-size:42px;line-height:1.1;letter-spacing:-.8px;">We set out to find<br>the unlocked potential<br>inside e-conomic.</h2>
-        <div class="tag-row" style="margin-top:20px;">
-          <div class="tag" style="background:#fef3c7;color:#92400e;">▶ Market Intelligence — build first</div>
-          <div class="tag">Nordic M&A &amp; PE</div>
-          <div class="tag">400k+ companies</div>
-          <div class="tag">e-conomic data moat</div>
+        <div style="display:flex;gap:10px;margin-top:24px;flex-wrap:wrap;">
+          <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:10px 16px;">
+            <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#86efac;margin-bottom:4px;">Concept 1</div>
+            <div style="font-size:13px;font-weight:700;color:white;">Portfolio Monitoring</div>
+            <div style="font-size:11px;color:#94a3b8;margin-top:2px;">PE funds · Live ERP data</div>
+          </div>
+          <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:10px 16px;">
+            <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#93c5fd;margin-bottom:4px;">Concept 2</div>
+            <div style="font-size:13px;font-weight:700;color:white;">Market Intelligence</div>
+            <div style="font-size:11px;color:#94a3b8;margin-top:2px;">M&amp;A advisors · Company data</div>
+          </div>
         </div>
       </div>
       <!-- Right: body text -->
       <div style="width:360px;flex-shrink:0;">
-        <p style="font-size:16px;color:#cbd5e1;line-height:1.75;">The brief was simple: e-conomic holds the financial data of 300,000+ companies — accurate, structured, and updated every month. Completely invisible to the market. We asked: what happens if we open that up, for the right buyers, in the right way?</p>
-        <p style="margin-top:16px;font-size:14px;color:#64748b;line-height:1.75;">Two distinct pain points surfaced — one inside PE funds, one inside M&A advisory. Two products. One data moat. Here's where we've landed.</p>
-      </div>
-    </div>
-
-    <!-- Concept cards -->
-    <div class="concept-cards">
-
-      <!-- C1 -->
-      <div class="concept-card" onclick="show('ov-c1')">
-        <div class="card-eyebrow eyebrow-green">Portfolio Monitoring</div>
-        <h3>PE Dashboard</h3>
-        <p style="font-size:13px;line-height:1.7;color:#374151;margin-bottom:16px;">Imagine never chasing a portfolio company for numbers again. Live ERP data flows automatically into your dashboard — early warnings surface weeks before they become real problems, and your LP report writes itself.</p>
-
-        <!-- Mini flow -->
-        <div style="display:flex;align-items:center;gap:6px;margin-bottom:16px;padding:10px 14px;background:#f0fdf4;border-radius:8px;font-size:11px;">
-          <span style="font-weight:700;color:#14532d;background:white;padding:3px 8px;border-radius:5px;border:1px solid #bbf7d0;">🏭 PortCo</span>
-          <span style="color:#16a34a;font-weight:700;">→</span>
-          <span style="font-weight:700;color:#14532d;background:white;padding:3px 8px;border-radius:5px;border:1px solid #bbf7d0;">🏢 PE Fund</span>
-          <span style="color:#16a34a;font-weight:700;">→</span>
-          <span style="font-weight:700;color:#14532d;background:white;padding:3px 8px;border-radius:5px;border:1px solid #bbf7d0;">👔 LP</span>
-          <span style="margin-left:auto;font-size:10px;color:#16a34a;font-weight:700;">Auto · Live · No email</span>
-        </div>
-
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
-          <div style="flex:1;background:#f9fafb;border-radius:7px;padding:10px 12px;">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:4px;">Nordic SAM</div>
-            <div style="font-size:16px;font-weight:800;">104–216M kr.</div>
-          </div>
-          <div style="flex:1;background:#f9fafb;border-radius:7px;padding:10px 12px;">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:4px;">Year-5 SOM</div>
-            <div style="font-size:16px;font-weight:800;">22–37M kr. ARR</div>
-          </div>
-          <div style="flex:1;background:#f9fafb;border-radius:7px;padding:10px 12px;">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:4px;">Target ACV</div>
-            <div style="font-size:16px;font-weight:800;">1,3–1,7M kr.</div>
-          </div>
-        </div>
-
-        <div style="font-size:11px;color:var(--muted);margin-bottom:12px;padding:8px 10px;background:#fffbeb;border-radius:6px;border:1px solid #fde68a;">
-          ⚠ Gated on e-conomic overlap validation — run that experiment before building
-        </div>
-
-        <div class="card-footer">
-          <button class="btn-primary btn-green" onclick="event.stopPropagation();show('ov-c1')">Read brief →</button>
-          <button class="btn-outline" onclick="event.stopPropagation();show('c1-dashboard')">Open prototype</button>
-        </div>
-      </div>
-
-      <!-- C2 -->
-      <div class="concept-card" onclick="show('ov-c2')">
-        <div class="card-eyebrow eyebrow-blue">Market Intelligence <span style="background:#fef3c7;color:#b45309;font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;margin-left:6px;">▶ BUILD FIRST</span></div>
-        <h3>Nordic Company Insights</h3>
-        <p style="font-size:13px;line-height:1.7;color:#374151;margin-bottom:16px;">Imagine walking into tomorrow's pitch meeting knowing exactly what a target earned last quarter — not what they told you, but what their own accounting system recorded. 30 minutes, not 2 days.</p>
-
-        <!-- Mini flow -->
-        <div style="display:flex;align-items:center;gap:6px;margin-bottom:16px;padding:10px 14px;background:#eff6ff;border-radius:8px;font-size:11px;">
-          <span style="font-weight:700;color:#1e3a5f;background:white;padding:3px 8px;border-radius:5px;border:1px solid #bfdbfe;">🎯 Target</span>
-          <span style="color:#2563eb;font-weight:700;">→</span>
-          <span style="font-weight:700;color:#1e3a5f;background:white;padding:3px 8px;border-radius:5px;border:1px solid #bfdbfe;">🔍 Screen</span>
-          <span style="color:#2563eb;font-weight:700;">→</span>
-          <span style="font-weight:700;color:#1e3a5f;background:white;padding:3px 8px;border-radius:5px;border:1px solid #bfdbfe;">📊 Company Insights</span>
-          <span style="margin-left:auto;font-size:10px;color:#2563eb;font-weight:700;">Real data · 30 min</span>
-        </div>
-
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
-          <div style="flex:1;background:#eff6ff;border-radius:7px;padding:10px 12px;">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#1d4ed8;margin-bottom:4px;">Nordic SAM</div>
-            <div style="font-size:16px;font-weight:800;">157–298M kr.</div>
-          </div>
-          <div style="flex:1;background:#eff6ff;border-radius:7px;padding:10px 12px;">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#1d4ed8;margin-bottom:4px;">Year-5 SOM</div>
-            <div style="font-size:16px;font-weight:800;">48,5M kr. ARR</div>
-          </div>
-          <div style="flex:1;background:#eff6ff;border-radius:7px;padding:10px 12px;">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#1d4ed8;margin-bottom:4px;">Seat price</div>
-            <div style="font-size:16px;font-weight:800;">134k kr./seat</div>
-          </div>
-        </div>
-
-        <div style="font-size:11px;color:#1d4ed8;margin-bottom:12px;padding:8px 10px;background:#dbeafe;border-radius:6px;">
-          ICP: M&A Associates &amp; VPs · Big-4 + Nordic boutiques · €20–500M EV deals
-        </div>
-
-        <div class="card-footer">
-          <button class="btn-primary btn-blue" onclick="event.stopPropagation();show('ov-c2')">Read brief →</button>
-          <button class="btn-outline" onclick="event.stopPropagation();show('c2-search')">Open prototype</button>
+        <p style="font-size:16px;color:#cbd5e1;line-height:1.75;">e-conomic holds live financial data on 300,000+ Nordic companies — structured, accurate, and updated every month. Completely invisible to the market. Two products. One data moat.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
+          <span style="font-size:11px;background:rgba(255,255,255,.1);color:#e2e8f0;padding:3px 10px;border-radius:99px;">300k+ companies</span>
+          <span style="font-size:11px;background:rgba(255,255,255,.1);color:#e2e8f0;padding:3px 10px;border-radius:99px;">Nordic M&amp;A &amp; PE</span>
+          <span style="font-size:11px;background:rgba(255,255,255,.1);color:#e2e8f0;padding:3px 10px;border-radius:99px;">e-conomic data moat</span>
         </div>
       </div>
     </div>
@@ -699,7 +623,8 @@
               <div style="font-size:13px;font-weight:800;color:#92400e;margin-bottom:2px;">Angel investor</div>
               <div style="font-size:10px;color:#b45309;font-style:italic;margin-bottom:1px;">Invest · minority</div>
               <div style="font-size:10px;color:#b45309;margin-bottom:1px;">Own money</div>
-              <div style="font-size:11px;font-weight:700;color:#92400e;margin-bottom:10px;">DKK 0,5–5M</div>
+              <div style="font-size:11px;font-weight:700;color:#92400e;margin-bottom:6px;">DKK 0,5–5M</div>
+              <div style="font-size:10px;font-weight:700;color:#92400e;background:#fde8c8;padding:2px 7px;border-radius:99px;display:inline-block;margin-bottom:8px;">~150+ active</div>
               <div style="border-top:1px solid #e8c9a0;padding-top:8px;">
                 <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#b45309;margin-bottom:5px;">Top players</div>
                 <div style="font-size:10px;color:#374151;line-height:1.7;">Tommy Ahlers<br>Lars Tvede<br>Martin Thorborg</div>
@@ -711,7 +636,8 @@
               <div style="font-size:13px;font-weight:800;color:#5b21b6;margin-bottom:2px;">VC fund</div>
               <div style="font-size:10px;color:#7c3aed;font-style:italic;margin-bottom:1px;">Invest · minority</div>
               <div style="font-size:10px;color:#7c3aed;margin-bottom:1px;">LP capital</div>
-              <div style="font-size:11px;font-weight:700;color:#5b21b6;margin-bottom:10px;">€1M–30M</div>
+              <div style="font-size:11px;font-weight:700;color:#5b21b6;margin-bottom:6px;">€1M–30M</div>
+              <div style="font-size:10px;font-weight:700;color:#5b21b6;background:#ede9fe;padding:2px 7px;border-radius:99px;display:inline-block;margin-bottom:8px;">~60+ active funds</div>
               <div style="border-top:1px solid #c4b5fd;padding-top:8px;">
                 <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#7c3aed;margin-bottom:5px;">Top players</div>
                 <div style="font-size:10px;color:#374151;line-height:1.7;">Seed Capital<br>byFounders<br>Heartcore Capital</div>
@@ -723,34 +649,36 @@
               <div style="font-size:13px;font-weight:800;color:#854d0e;margin-bottom:2px;">Family office</div>
               <div style="font-size:10px;color:#a16207;font-style:italic;margin-bottom:1px;">Invest · minority</div>
               <div style="font-size:10px;color:#a16207;margin-bottom:1px;">Family capital</div>
-              <div style="font-size:11px;font-weight:700;color:#854d0e;margin-bottom:10px;">€5M–100M</div>
+              <div style="font-size:11px;font-weight:700;color:#854d0e;margin-bottom:6px;">€5M–100M</div>
+              <div style="font-size:10px;font-weight:700;color:#854d0e;background:#fef9c3;padding:2px 7px;border-radius:99px;display:inline-block;margin-bottom:8px;">~40+ Nordic FOs</div>
               <div style="border-top:1px solid #d4a820;padding-top:8px;">
                 <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#a16207;margin-bottom:5px;">Top players</div>
                 <div style="font-size:10px;color:#374151;line-height:1.7;">Kirk Kapital<br>Heartland<br>Lind Invest</div>
               </div>
             </div>
 
-            <!-- PE fund — highlighted (C1 ICP) -->
-            <div style="border:2px solid #16a34a;border-radius:10px;padding:14px 12px;background:#f0fdf4;position:relative;">
-              <div style="position:absolute;top:-10px;right:10px;font-size:9px;font-weight:700;background:#16a34a;color:white;padding:2px 7px;border-radius:99px;white-space:nowrap;">🟢 C1 ICP</div>
+            <!-- PE fund — no ICP badge -->
+            <div style="border:2px solid #16a34a;border-radius:10px;padding:14px 12px;background:#f0fdf4;">
               <div style="font-size:13px;font-weight:800;color:#14532d;margin-bottom:2px;">PE fund</div>
               <div style="font-size:10px;color:#15803d;font-style:italic;margin-bottom:1px;">Acquire · majority</div>
               <div style="font-size:10px;color:#15803d;margin-bottom:1px;">LP capital</div>
-              <div style="font-size:11px;font-weight:700;color:#14532d;margin-bottom:10px;">€10M–500M EV</div>
+              <div style="font-size:11px;font-weight:700;color:#14532d;margin-bottom:6px;">€10M–500M EV</div>
+              <div style="font-size:10px;font-weight:700;color:#15803d;background:#dcfce7;padding:2px 7px;border-radius:99px;display:inline-block;margin-bottom:8px;">~200+ Nordic PE funds</div>
               <div style="border-top:1px solid #bbf7d0;padding-top:8px;">
                 <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#15803d;margin-bottom:5px;">Top players</div>
                 <div style="font-size:10px;color:#374151;line-height:1.7;">Axcel<br>Polaris<br>CataCap</div>
               </div>
             </div>
 
-            <!-- Advisors — highlighted (C2 ICP) -->
-            <div style="border:2px solid #2563eb;border-radius:10px;padding:14px 12px;background:#eff6ff;position:relative;">
-              <div style="position:absolute;top:-10px;right:10px;font-size:9px;font-weight:700;background:#2563eb;color:white;padding:2px 7px;border-radius:99px;white-space:nowrap;">🔵 C2 ICP</div>
+            <!-- Advisors — no ICP badge -->
+            <div style="border:2px solid #2563eb;border-radius:10px;padding:14px 12px;background:#eff6ff;">
               <div style="font-size:13px;font-weight:800;color:#1e3a5f;margin-bottom:2px;">Advisors</div>
-              <div style="font-size:10px;color:#2563eb;font-style:italic;margin-bottom:10px;">M&amp;A · DD</div>
+              <div style="font-size:10px;color:#2563eb;font-style:italic;margin-bottom:1px;">M&amp;A · DD</div>
+              <div style="font-size:11px;font-weight:700;color:#1e3a5f;margin-bottom:6px;">€20–500M EV deals</div>
+              <div style="font-size:10px;font-weight:700;color:#2563eb;background:#dbeafe;padding:2px 7px;border-radius:99px;display:inline-block;margin-bottom:8px;">~500+ M&amp;A professionals</div>
               <div style="border-top:1px solid #bfdbfe;padding-top:8px;">
                 <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#2563eb;margin-bottom:5px;">Relevant actors</div>
-                <div style="font-size:10px;color:#374151;line-height:1.7;">Lawyers<br>M&amp;A advisors<br>Consultancies<br>Auditors (AOs)</div>
+                <div style="font-size:10px;color:#374151;line-height:1.7;">Big-4 CF teams<br>M&amp;A boutiques<br>Consultancies</div>
               </div>
             </div>
           </div>
@@ -802,6 +730,92 @@
             </div>
           </div>
 
+        </div>
+      </div>
+    </div>
+
+    <!-- Concept cards -->
+    <div class="concept-cards">
+
+      <!-- C1 -->
+      <div class="concept-card" onclick="show('ov-c1')">
+        <div class="card-eyebrow eyebrow-green">Portfolio Monitoring</div>
+        <h3>PE Dashboard</h3>
+        <p style="font-size:13px;line-height:1.7;color:#374151;margin-bottom:16px;">Imagine never chasing a portfolio company for numbers again. Live ERP data flows automatically into your dashboard — early warnings surface weeks before they become real problems, and your LP report writes itself.</p>
+
+        <!-- Mini flow -->
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:16px;padding:10px 14px;background:#f0fdf4;border-radius:8px;font-size:11px;">
+          <span style="font-weight:700;color:#14532d;background:white;padding:3px 8px;border-radius:5px;border:1px solid #bbf7d0;">🏭 PortCo</span>
+          <span style="color:#16a34a;font-weight:700;">→</span>
+          <span style="font-weight:700;color:#14532d;background:white;padding:3px 8px;border-radius:5px;border:1px solid #bbf7d0;">🏢 PE Fund</span>
+          <span style="color:#16a34a;font-weight:700;">→</span>
+          <span style="font-weight:700;color:#14532d;background:white;padding:3px 8px;border-radius:5px;border:1px solid #bbf7d0;">👔 LP</span>
+          <span style="margin-left:auto;font-size:10px;color:#16a34a;font-weight:700;">Auto · Live · No email</span>
+        </div>
+
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+          <div style="flex:1;background:#f9fafb;border-radius:7px;padding:10px 12px;">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:4px;">Nordic SAM</div>
+            <div style="font-size:16px;font-weight:800;">104–216M kr.</div>
+          </div>
+          <div style="flex:1;background:#f9fafb;border-radius:7px;padding:10px 12px;">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:4px;">Year-5 SOM</div>
+            <div style="font-size:16px;font-weight:800;">22–37M kr. ARR</div>
+          </div>
+          <div style="flex:1;background:#f9fafb;border-radius:7px;padding:10px 12px;">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:4px;">Target ACV</div>
+            <div style="font-size:16px;font-weight:800;">1,3–1,7M kr.</div>
+          </div>
+        </div>
+
+        <div style="font-size:11px;color:var(--muted);margin-bottom:12px;padding:8px 10px;background:#fffbeb;border-radius:6px;border:1px solid #fde68a;">
+          ⚠ Gated on e-conomic overlap validation — run that experiment before building
+        </div>
+
+        <div class="card-footer">
+          <button class="btn-primary btn-green" onclick="event.stopPropagation();show('ov-c1')">Read brief →</button>
+          <button class="btn-outline" onclick="event.stopPropagation();show('c1-dashboard')">Open prototype</button>
+        </div>
+      </div>
+
+      <!-- C2 -->
+      <div class="concept-card" onclick="show('ov-c2')">
+        <div class="card-eyebrow eyebrow-blue">Market Intelligence</div>
+        <h3>Nordic Company Insights</h3>
+        <p style="font-size:13px;line-height:1.7;color:#374151;margin-bottom:16px;">Imagine walking into tomorrow's pitch meeting knowing exactly what a target earned last quarter — not what they told you, but what their own accounting system recorded. 30 minutes, not 2 days.</p>
+
+        <!-- Mini flow -->
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:16px;padding:10px 14px;background:#eff6ff;border-radius:8px;font-size:11px;">
+          <span style="font-weight:700;color:#1e3a5f;background:white;padding:3px 8px;border-radius:5px;border:1px solid #bfdbfe;">🎯 Target</span>
+          <span style="color:#2563eb;font-weight:700;">→</span>
+          <span style="font-weight:700;color:#1e3a5f;background:white;padding:3px 8px;border-radius:5px;border:1px solid #bfdbfe;">🔍 Screen</span>
+          <span style="color:#2563eb;font-weight:700;">→</span>
+          <span style="font-weight:700;color:#1e3a5f;background:white;padding:3px 8px;border-radius:5px;border:1px solid #bfdbfe;">📊 Company Insights</span>
+          <span style="margin-left:auto;font-size:10px;color:#2563eb;font-weight:700;">Real data · 30 min</span>
+        </div>
+
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+          <div style="flex:1;background:#eff6ff;border-radius:7px;padding:10px 12px;">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#1d4ed8;margin-bottom:4px;">Nordic SAM</div>
+            <div style="font-size:16px;font-weight:800;">157–298M kr.</div>
+          </div>
+          <div style="flex:1;background:#eff6ff;border-radius:7px;padding:10px 12px;">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#1d4ed8;margin-bottom:4px;">Year-5 SOM</div>
+            <div style="font-size:16px;font-weight:800;">48,5M kr. ARR</div>
+          </div>
+          <div style="flex:1;background:#eff6ff;border-radius:7px;padding:10px 12px;">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#1d4ed8;margin-bottom:4px;">Seat price</div>
+            <div style="font-size:16px;font-weight:800;">134k kr./seat</div>
+          </div>
+        </div>
+
+        <div style="font-size:11px;color:#1d4ed8;margin-bottom:12px;padding:8px 10px;background:#dbeafe;border-radius:6px;">
+          ICP: M&A Associates &amp; VPs · Big-4 + Nordic boutiques · €20–500M EV deals
+        </div>
+
+        <div class="card-footer">
+          <button class="btn-primary btn-blue" onclick="event.stopPropagation();show('ov-c2')">Read brief →</button>
+          <button class="btn-outline" onclick="event.stopPropagation();show('c2-search')">Open prototype</button>
         </div>
       </div>
     </div>
