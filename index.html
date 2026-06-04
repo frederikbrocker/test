@@ -1046,6 +1046,76 @@
   </div>
 
   <!-- ════════════════════════════════
+       OVERVIEW — COMPETITOR ANALYSIS
+  ═════════════════════════════════ -->
+  <div id="page-ov-competitor" class="page" style="display:none;flex-direction:column;">
+    <div class="topbar">
+      <h1>Competitor Analysis</h1>
+      <span class="chip chip-grey" style="margin-left:8px;">Both concepts · DKK · June 2026</span>
+      <span style="margin-left:auto;font-size:11px;color:var(--muted);">Hover any price for sources &amp; assumptions · Click card to expand</span>
+    </div>
+    <div class="content" style="overflow-y:auto;">
+
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;font-size:11px;color:var(--muted);">
+        <span style="font-weight:600;">Confidence:</span>
+        <span><span style="color:#5F9079;font-weight:700;">●</span> Verified (public price)</span>
+        <span><span style="color:#A96E34;font-weight:700;">●</span> Reported (procurement data)</span>
+        <span><span style="color:#6b7280;font-weight:700;">●</span> Estimated (indirect signals)</span>
+        <span><span style="color:#B5616C;font-weight:700;">●</span> Opaque (no data)</span>
+        <span style="margin-left:8px;color:#6b7280;">FX: USD/DKK 6,42 · EUR/DKK 7,46 (pegged)</span>
+      </div>
+
+      <div class="tab-bar" style="margin-bottom:0;">
+        <button class="tab-btn active" id="ctab-c1" onclick="switchCompTab('c1')">C1 — Portfolio Dashboard</button>
+        <button class="tab-btn" id="ctab-c2" onclick="switchCompTab('c2')">C2 — Market Intelligence</button>
+      </div>
+
+      <div id="cpanel-c1" style="padding-top:24px;">
+        <div style="border:1.5px solid #A96E3480;border-radius:10px;padding:20px;margin-bottom:24px;background:white;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:4px;">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#A96E34;">Hvad kan vi tage?</span>
+            <span style="font-size:11px;color:var(--muted);">per fond / år (platform subscription)</span>
+          </div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:14px;">Incumbents (iLEVEL ~230k base, Cobalt/Chronograph ~320k–1,28M DKK) prissætter for store fonde. Det reelle alternativ er gratis-men-smertefuldt Excel. Vores wedge — zero-effort live data — lader os sætte os godt under incumbents.</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+            <div style="background:#dbeafe;border-radius:8px;padding:14px;border-top:3px solid #2563eb;"><div style="font-size:10px;color:#2563eb;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">Entry / land</div><div style="font-size:22px;font-weight:800;">~75k DKK</div><div style="font-size:11px;color:var(--muted);margin-top:4px;">Lille fond (3–5 portcos) · ~⅓ af iLEVEL base</div></div>
+            <div style="background:#fef3c7;border-radius:8px;padding:14px;border-top:3px solid #d97706;"><div style="font-size:10px;color:#d97706;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">Core mid-market</div><div style="font-size:22px;font-weight:800;">~175k DKK</div><div style="font-size:11px;color:var(--muted);margin-top:4px;">5–10 portco fond · Under iLEVEL base+users</div></div>
+            <div style="background:#dcfce7;border-radius:8px;padding:14px;border-top:3px solid #16a34a;"><div style="font-size:10px;color:#16a34a;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">Larger / premium</div><div style="font-size:22px;font-weight:800;">~375k DKK</div><div style="font-size:11px;color:var(--muted);margin-top:4px;">10–20+ portcos · Stadig under incumbents</div></div>
+          </div>
+        </div>
+        <div id="c1-cards"></div>
+      </div>
+
+      <div id="cpanel-c2" style="padding-top:24px;display:none;">
+        <div style="border:1.5px solid #A96E3480;border-radius:10px;padding:20px;margin-bottom:24px;background:white;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:4px;">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#A96E34;">Hvad kan vi tage?</span>
+            <span style="font-size:11px;color:var(--muted);">per seat / år</span>
+          </div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:14px;">Legacy-terminalerne (PitchBook ~96–128k, CapIQ ~77–193k, Gain.pro/Valu8 ~75–224k, Mergermarket ~149–224k DKK/seat) sætter loftet. Tættest direkte komp — AI-native Inven — lister ~64k DKK/seat. Vores wedge — live Nordic SMB data — justificerer et premium over Inven, mens vi forbliver under terminalerne.</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+            <div style="background:#dbeafe;border-radius:8px;padding:14px;border-top:3px solid #2563eb;"><div style="font-size:10px;color:#2563eb;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">Entry / land</div><div style="font-size:22px;font-weight:800;">~55k DKK</div><div style="font-size:11px;color:var(--muted);margin-top:4px;">Matcher Inven · under alle terminaler</div></div>
+            <div style="background:#fef3c7;border-radius:8px;padding:14px;border-top:3px solid #d97706;"><div style="font-size:10px;color:#d97706;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">Core seat</div><div style="font-size:22px;font-weight:800;">~100k DKK</div><div style="font-size:11px;color:var(--muted);margin-top:4px;">Premium over Inven · under PitchBook/CapIQ</div></div>
+            <div style="background:#dcfce7;border-radius:8px;padding:14px;border-top:3px solid #16a34a;"><div style="font-size:10px;color:#16a34a;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">Premium / power user</div><div style="font-size:22px;font-weight:800;">~175k DKK</div><div style="font-size:11px;color:var(--muted);margin-top:4px;">For tunge deal teams · ved Mergermarket floor</div></div>
+          </div>
+        </div>
+        <div id="c2-cards"></div>
+      </div>
+
+      <div style="margin-top:32px;padding:20px 24px;background:white;border-radius:10px;border:1.5px solid #A96E3440;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#A96E34;margin-bottom:12px;">Pricing strategy — implikationer</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div><div style="font-size:13px;font-weight:700;margin-bottom:4px;">Concept 1 — Portfolio Dashboard</div><div style="font-size:12px;color:var(--muted);line-height:1.6;">Comp set er iLEVEL/Chronograph/Cobalt ved ~230k–1,3M DKK. Men vi fortrænger reelt Excel. Prissætning ved ~100k–260k DKK/år for 5–10 portco fond sidder 70–90% under incumbents.</div></div>
+          <div><div style="font-size:13px;font-weight:700;margin-bottom:4px;">Concept 2 — Market Intelligence</div><div style="font-size:12px;color:var(--muted);line-height:1.6;">Comp set er Valu8/Gain.pro/PitchBook/CIQ/Mergermarket ved ~77k–449k DKK/seat. Reel fortrængning er gratis junior-analyst-tid. Wedge: pris under terminalerne med Nordic SMB-dybde ingen af dem har.</div></div>
+        </div>
+      </div>
+
+      <div style="font-size:10px;color:var(--muted);margin-top:16px;margin-bottom:32px;line-height:1.5;">Kilder: Vendr procurement data (n=114 PitchBook), Costbench (18 sources for CIQ), Datasite/Valu8 acquisition release, Crediwire.com/price, Planr category guide, G2/Datarade, Crunchbase/Tracxn, company sites, project interviews. FX: nationalbanken.dk June 2026.</div>
+
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════
        OVERVIEW — CONCEPT 1
   ═════════════════════════════════ -->
   <div id="page-ov-c1" class="page">
