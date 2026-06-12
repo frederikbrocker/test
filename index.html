@@ -3106,198 +3106,316 @@
   <!-- ════════════════════════════════
        C2 — COMPANY LOOKUP (PRIMARY HOME)
   ═════════════════════════════════ -->
+  <!-- ════════════════════════════════
+       C2 — COMPANY INSIGHTS LANDING (My Companies)
+  ═════════════════════════════════ -->
   <div id="page-c2-search" class="page">
-    <!-- Search header -->
-    <div style="background:#0f172a;padding:32px 36px 24px;border-bottom:1px solid #1e293b;flex-shrink:0;">
-      <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:20px;">
-        <div style="font-size:11px;font-weight:700;color:#475569;letter-spacing:1.5px;text-transform:uppercase;">Nordic Private Market Intelligence</div>
-        <div style="font-size:11px;color:#334155;">267k companies · e-conomic live data · updated monthly</div>
-      </div>
-      <div style="display:flex;gap:0;">
-        <div style="flex:1;position:relative;">
-          <span style="position:absolute;left:16px;top:50%;transform:translateY(-50%);color:#64748b;font-size:17px;line-height:1;">⌕</span>
-          <input class="search-input" id="searchInput" type="text"
-            placeholder="Company name, CVR number, or org number…"
-            value=""
-            style="width:100%;padding-left:44px;font-size:15px;border-radius:8px 0 0 8px;border-right:none;height:48px;"
-            onkeydown="if(event.key==='Enter')runSearch()">
+
+    <!-- Header -->
+    <div style="background:#0f172a;padding:24px 36px;border-bottom:1px solid #1e293b;flex-shrink:0;">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <div>
+          <div style="font-size:11px;font-weight:700;color:#475569;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;">Nordic Private Market Intelligence</div>
+          <h2 style="color:white;font-size:22px;font-weight:800;margin:0 0 4px;">My companies</h2>
+          <div style="font-size:12px;color:#64748b;">4 on watchlist · 8 saved · 267k companies in database</div>
         </div>
-        <button class="btn-search" onclick="runSearch()"
-          style="font-size:14px;font-weight:700;border-radius:0 8px 8px 0;padding:0 28px;height:48px;white-space:nowrap;">
-          Search →
-        </button>
-      </div>
-      <div style="margin-top:10px;font-size:11px;color:#475569;">
-        Try:
-        <span onclick="fillSearch('Bizkit ApS')" style="color:#64748b;cursor:pointer;margin-right:14px;text-decoration:underline;text-decoration-color:#334155;">Bizkit ApS</span>
-        <span onclick="fillSearch('Nordflex AS')" style="color:#64748b;cursor:pointer;margin-right:14px;text-decoration:underline;text-decoration-color:#334155;">Nordflex AS</span>
-        <span onclick="fillSearch('Kapenta AB')" style="color:#64748b;cursor:pointer;margin-right:14px;text-decoration:underline;text-decoration-color:#334155;">Kapenta AB</span>
-        <span onclick="fillSearch('CVR 38421907')" style="color:#64748b;cursor:pointer;text-decoration:underline;text-decoration-color:#334155;">CVR 38421907</span>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <button onclick="show('c2-screening')" style="font-size:13px;font-weight:600;padding:9px 18px;background:transparent;color:#94a3b8;border:1px solid #334155;border-radius:7px;cursor:pointer;font-family:inherit;">🔍 Find companies</button>
+          <button onclick="show('c2-screening')" style="font-size:13px;font-weight:600;padding:9px 18px;background:#2563eb;color:white;border:none;border-radius:7px;cursor:pointer;font-family:inherit;">+ Add company</button>
+        </div>
       </div>
     </div>
 
-    <div style="flex:1;overflow-y:auto;padding:20px 36px;display:grid;grid-template-columns:1fr 440px;gap:24px;align-items:start;">
+    <!-- Body -->
+    <div style="flex:1;overflow-y:auto;padding:24px 36px;display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start;">
 
-      <!-- LEFT: Watchlist — most prominent -->
-      <div>
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-          <div style="font-size:14px;font-weight:700;" title="Companies flagged for ongoing monitoring — metric changes surface here automatically">Watchlist <span style="font-size:12px;font-weight:400;color:var(--muted);">· 4 companies</span></div>
-          <span style="font-size:11px;color:var(--muted);">MoM movement · live</span>
-        </div>
-        <div class="card" style="padding:0;overflow:hidden;margin-bottom:20px;">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Company</th><th>Revenue</th><th>MoM Δ</th><th>EBITDA</th><th>Alerts</th><th>Follow-up</th><th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Kapenta AB</strong> <span style="font-size:10px;color:var(--muted);">🇸🇪</span></td>
-                <td class="mono">€6.1M</td>
-                <td><span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:#16a34a;background:#dcfce7;padding:2px 7px;border-radius:99px;" title="Revenue moved +18% vs prior month">↑ +18% rev</span></td>
-                <td>17.2%</td>
-                <td><span style="font-size:11px;font-weight:700;color:#16a34a;background:#dcfce7;padding:2px 7px;border-radius:99px;">Rapid growth</span></td>
-                <td><span style="font-size:11px;padding:2px 8px;background:#fef3c7;border-radius:99px;color:#b45309;font-weight:600;">1 Jun</span></td>
-                <td><button class="btn-primary btn-blue" onclick="show('c2-pitch')" style="font-size:11px;padding:4px 10px;">View →</button></td>
-              </tr>
-              <tr>
-                <td><strong>Tectum AB</strong> <span style="font-size:10px;color:var(--muted);">🇸🇪</span></td>
-                <td class="mono">€11.2M</td>
-                <td><span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:#d97706;background:#fef3c7;padding:2px 7px;border-radius:99px;" title="Revenue flat vs prior month">→ +2% rev</span></td>
-                <td>14.8%</td>
-                <td><span style="font-size:11px;font-weight:700;color:#475569;background:#f1f5f9;padding:2px 7px;border-radius:99px;">Awaiting filing</span></td>
-                <td><span style="font-size:11px;padding:2px 8px;background:#f1f5f9;border-radius:99px;color:#64748b;font-weight:600;">15 Jun</span></td>
-                <td><button class="btn-outline" style="font-size:11px;padding:4px 10px;">View →</button></td>
-              </tr>
-              <tr>
-                <td><strong>Intellicheck AS</strong> <span style="font-size:10px;color:var(--muted);">🇳🇴</span></td>
-                <td class="mono">€5.2M</td>
-                <td><span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:#dc2626;background:#fef2f2;padding:2px 7px;border-radius:99px;" title="Ownership change detected in registry">⚠ ownership Δ</span></td>
-                <td>12.1%</td>
-                <td><span style="font-size:11px;font-weight:700;color:#dc2626;background:#fef2f2;padding:2px 7px;border-radius:99px;">Ownership changed</span></td>
-                <td><span style="font-size:11px;padding:2px 8px;background:#fee2e2;border-radius:99px;color:#dc2626;font-weight:600;">Overdue</span></td>
-                <td><button class="btn-outline" style="font-size:11px;padding:4px 10px;">View →</button></td>
-              </tr>
-              <tr>
-                <td><strong>Flexo DK</strong> <span style="font-size:10px;color:var(--muted);">🇩🇰</span></td>
-                <td class="mono">€4.4M</td>
-                <td><span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:#2563eb;background:#dbeafe;padding:2px 7px;border-radius:99px;" title="New financing event detected">💰 new financing</span></td>
-                <td>19.3%</td>
-                <td><span style="font-size:11px;font-weight:700;color:#2563eb;background:#dbeafe;padding:2px 7px;border-radius:99px;">Financing event</span></td>
-                <td><span style="font-size:11px;padding:2px 8px;background:#dbeafe;border-radius:99px;color:#2563eb;font-weight:600;">5 Jun</span></td>
-                <td><button class="btn-outline" style="font-size:11px;padding:4px 10px;">View →</button></td>
-              </tr>
-            </tbody>
-          </table>
+      <!-- LEFT: Watchlist + Saved -->
+      <div style="display:flex;flex-direction:column;gap:24px;">
+
+        <!-- WATCHLIST -->
+        <div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <div style="font-size:14px;font-weight:700;">Watchlist <span style="font-size:12px;font-weight:400;color:var(--muted);">· 4 companies · MoM monitoring active</span></div>
+            <span style="font-size:11px;color:var(--muted);">Live · updated monthly</span>
+          </div>
+          <div class="card" style="padding:0;overflow:hidden;">
+            <table class="data-table">
+              <thead>
+                <tr><th>Company</th><th>Revenue</th><th>MoM Δ</th><th>EBITDA</th><th>Alert</th><th>Follow-up</th><th></th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Kapenta AB</strong> <span style="font-size:10px;color:var(--muted);">🇸🇪</span></td>
+                  <td class="mono">€6.1M</td>
+                  <td><span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:#16a34a;background:#dcfce7;padding:2px 7px;border-radius:99px;">↑ +18% rev</span></td>
+                  <td>17.2%</td>
+                  <td><span style="font-size:11px;font-weight:700;color:#16a34a;background:#dcfce7;padding:2px 7px;border-radius:99px;">Rapid growth</span></td>
+                  <td><span style="font-size:11px;padding:2px 8px;background:#fef3c7;border-radius:99px;color:#b45309;font-weight:600;">1 Jun</span></td>
+                  <td><button class="btn-primary btn-blue" onclick="show('c2-pitch')" style="font-size:11px;padding:4px 10px;">View →</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Tectum AB</strong> <span style="font-size:10px;color:var(--muted);">🇸🇪</span></td>
+                  <td class="mono">€11.2M</td>
+                  <td><span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:#d97706;background:#fef3c7;padding:2px 7px;border-radius:99px;">→ +2% rev</span></td>
+                  <td>14.8%</td>
+                  <td><span style="font-size:11px;font-weight:700;color:#475569;background:#f1f5f9;padding:2px 7px;border-radius:99px;">Awaiting filing</span></td>
+                  <td><span style="font-size:11px;padding:2px 8px;background:#f1f5f9;border-radius:99px;color:#64748b;font-weight:600;">15 Jun</span></td>
+                  <td><button class="btn-outline" onclick="show('c2-pitch')" style="font-size:11px;padding:4px 10px;">View →</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Intellicheck AS</strong> <span style="font-size:10px;color:var(--muted);">🇳🇴</span></td>
+                  <td class="mono">€5.2M</td>
+                  <td><span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:#dc2626;background:#fef2f2;padding:2px 7px;border-radius:99px;">⚠ ownership Δ</span></td>
+                  <td>12.1%</td>
+                  <td><span style="font-size:11px;font-weight:700;color:#dc2626;background:#fef2f2;padding:2px 7px;border-radius:99px;">Ownership changed</span></td>
+                  <td><span style="font-size:11px;padding:2px 8px;background:#fee2e2;border-radius:99px;color:#dc2626;font-weight:600;">Overdue</span></td>
+                  <td><button class="btn-outline" onclick="show('c2-pitch')" style="font-size:11px;padding:4px 10px;">View →</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Flexo DK</strong> <span style="font-size:10px;color:var(--muted);">🇩🇰</span></td>
+                  <td class="mono">€4.4M</td>
+                  <td><span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:#2563eb;background:#dbeafe;padding:2px 7px;border-radius:99px;">💰 new financing</span></td>
+                  <td>19.3%</td>
+                  <td><span style="font-size:11px;font-weight:700;color:#2563eb;background:#dbeafe;padding:2px 7px;border-radius:99px;">Financing event</span></td>
+                  <td><span style="font-size:11px;padding:2px 8px;background:#dbeafe;border-radius:99px;color:#2563eb;font-weight:600;">5 Jun</span></td>
+                  <td><button class="btn-outline" onclick="show('c2-pitch')" style="font-size:11px;padding:4px 10px;">View →</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
-        <!-- Recent data packs -->
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-          <div style="font-size:14px;font-weight:700;" title="Company Insights reports generated in this session">Recent data packs</div>
-          <span style="font-size:11px;color:var(--muted);">Last 7 days</span>
+        <!-- SAVED / LIKED -->
+        <div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <div style="font-size:14px;font-weight:700;">Saved <span style="font-size:12px;font-weight:400;color:var(--muted);">· 8 companies · not yet on watchlist</span></div>
+            <button onclick="show('c2-screening')" style="font-size:11px;font-weight:600;padding:5px 12px;background:#f1f5f9;color:#475569;border:none;border-radius:5px;cursor:pointer;font-family:inherit;">+ Find more →</button>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+
+            <div class="card" style="padding:14px 16px;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px;">
+                <div style="font-size:13px;font-weight:700;">Bizkit ApS</div>
+                <span style="color:#e11d48;font-size:15px;cursor:pointer;" title="Saved">♥</span>
+              </div>
+              <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">🇩🇰 Denmark · B2B SaaS</div>
+              <div style="font-size:20px;font-weight:800;line-height:1;margin-bottom:2px;">€14.2M</div>
+              <div style="font-size:12px;color:#16a34a;font-weight:600;margin-bottom:12px;">+31% revenue</div>
+              <div style="display:flex;gap:6px;">
+                <button onclick="show('c2-pitch')" style="flex:1;font-size:11px;font-weight:600;padding:5px 0;background:#eff6ff;color:#2563eb;border:none;border-radius:5px;cursor:pointer;font-family:inherit;">View →</button>
+                <button style="flex:1;font-size:11px;font-weight:600;padding:5px 0;background:#f0fdf4;color:#16a34a;border:none;border-radius:5px;cursor:pointer;font-family:inherit;">+ Watch</button>
+              </div>
+            </div>
+
+            <div class="card" style="padding:14px 16px;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px;">
+                <div style="font-size:13px;font-weight:700;">Nordflex AS</div>
+                <span style="color:#e11d48;font-size:15px;cursor:pointer;" title="Saved">♥</span>
+              </div>
+              <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">🇳🇴 Norway · Industrials</div>
+              <div style="font-size:20px;font-weight:800;line-height:1;margin-bottom:2px;">€9.7M</div>
+              <div style="font-size:12px;color:#16a34a;font-weight:600;margin-bottom:12px;">+18% revenue</div>
+              <div style="display:flex;gap:6px;">
+                <button onclick="show('c2-pitch')" style="flex:1;font-size:11px;font-weight:600;padding:5px 0;background:#eff6ff;color:#2563eb;border:none;border-radius:5px;cursor:pointer;font-family:inherit;">View →</button>
+                <button style="flex:1;font-size:11px;font-weight:600;padding:5px 0;background:#f0fdf4;color:#16a34a;border:none;border-radius:5px;cursor:pointer;font-family:inherit;">+ Watch</button>
+              </div>
+            </div>
+
+            <div class="card" style="padding:14px 16px;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px;">
+                <div style="font-size:13px;font-weight:700;">Greenform AS</div>
+                <span style="color:#e11d48;font-size:15px;cursor:pointer;" title="Saved">♥</span>
+              </div>
+              <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">🇳🇴 Norway · CleanTech</div>
+              <div style="font-size:20px;font-weight:800;line-height:1;margin-bottom:2px;">€18.4M</div>
+              <div style="font-size:12px;color:#16a34a;font-weight:600;margin-bottom:12px;">+26% revenue</div>
+              <div style="display:flex;gap:6px;">
+                <button onclick="show('c2-pitch')" style="flex:1;font-size:11px;font-weight:600;padding:5px 0;background:#eff6ff;color:#2563eb;border:none;border-radius:5px;cursor:pointer;font-family:inherit;">View →</button>
+                <button style="flex:1;font-size:11px;font-weight:600;padding:5px 0;background:#f0fdf4;color:#16a34a;border:none;border-radius:5px;cursor:pointer;font-family:inherit;">+ Watch</button>
+              </div>
+            </div>
+
+            <div class="card" style="padding:14px 16px;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px;">
+                <div style="font-size:13px;font-weight:700;">Captura ApS</div>
+                <span style="color:#e11d48;font-size:15px;cursor:pointer;" title="Saved">♥</span>
+              </div>
+              <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">🇩🇰 Denmark · SaaS</div>
+              <div style="font-size:20px;font-weight:800;line-height:1;margin-bottom:2px;">€6.3M</div>
+              <div style="font-size:12px;color:#16a34a;font-weight:600;margin-bottom:12px;">+22% revenue</div>
+              <div style="display:flex;gap:6px;">
+                <button onclick="show('c2-pitch')" style="flex:1;font-size:11px;font-weight:600;padding:5px 0;background:#eff6ff;color:#2563eb;border:none;border-radius:5px;cursor:pointer;font-family:inherit;">View →</button>
+                <button style="flex:1;font-size:11px;font-weight:600;padding:5px 0;background:#f0fdf4;color:#16a34a;border:none;border-radius:5px;cursor:pointer;font-family:inherit;">+ Watch</button>
+              </div>
+            </div>
+
+            <div class="card" style="padding:14px 16px;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px;">
+                <div style="font-size:13px;font-weight:700;">Solvex AB</div>
+                <span style="color:#e11d48;font-size:15px;cursor:pointer;" title="Saved">♥</span>
+              </div>
+              <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">🇸🇪 Sweden · FinTech</div>
+              <div style="font-size:20px;font-weight:800;line-height:1;margin-bottom:2px;">€7.8M</div>
+              <div style="font-size:12px;color:#16a34a;font-weight:600;margin-bottom:12px;">+35% revenue</div>
+              <div style="display:flex;gap:6px;">
+                <button onclick="show('c2-pitch')" style="flex:1;font-size:11px;font-weight:600;padding:5px 0;background:#eff6ff;color:#2563eb;border:none;border-radius:5px;cursor:pointer;font-family:inherit;">View →</button>
+                <button style="flex:1;font-size:11px;font-weight:600;padding:5px 0;background:#f0fdf4;color:#16a34a;border:none;border-radius:5px;cursor:pointer;font-family:inherit;">+ Watch</button>
+              </div>
+            </div>
+
+            <div class="card" style="padding:14px 16px;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px;">
+                <div style="font-size:13px;font-weight:700;">Fabrik DK ApS</div>
+                <span style="color:#e11d48;font-size:15px;cursor:pointer;" title="Saved">♥</span>
+              </div>
+              <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">🇩🇰 Denmark · Manufacturing</div>
+              <div style="font-size:20px;font-weight:800;line-height:1;margin-bottom:2px;">€8.8M</div>
+              <div style="font-size:12px;color:#16a34a;font-weight:600;margin-bottom:12px;">+14% revenue</div>
+              <div style="display:flex;gap:6px;">
+                <button onclick="show('c2-pitch')" style="flex:1;font-size:11px;font-weight:600;padding:5px 0;background:#eff6ff;color:#2563eb;border:none;border-radius:5px;cursor:pointer;font-family:inherit;">View →</button>
+                <button style="flex:1;font-size:11px;font-weight:600;padding:5px 0;background:#f0fdf4;color:#16a34a;border:none;border-radius:5px;cursor:pointer;font-family:inherit;">+ Watch</button>
+              </div>
+            </div>
+
+            <div class="card" style="padding:14px 16px;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px;">
+                <div style="font-size:13px;font-weight:700;">Planr AS</div>
+                <span style="color:#e11d48;font-size:15px;cursor:pointer;" title="Saved">♥</span>
+              </div>
+              <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">🇳🇴 Norway · PropTech</div>
+              <div style="font-size:20px;font-weight:800;line-height:1;margin-bottom:2px;">€12.1M</div>
+              <div style="font-size:12px;color:#16a34a;font-weight:600;margin-bottom:12px;">+9% revenue</div>
+              <div style="display:flex;gap:6px;">
+                <button onclick="show('c2-pitch')" style="flex:1;font-size:11px;font-weight:600;padding:5px 0;background:#eff6ff;color:#2563eb;border:none;border-radius:5px;cursor:pointer;font-family:inherit;">View →</button>
+                <button style="flex:1;font-size:11px;font-weight:600;padding:5px 0;background:#f0fdf4;color:#16a34a;border:none;border-radius:5px;cursor:pointer;font-family:inherit;">+ Watch</button>
+              </div>
+            </div>
+
+            <div class="card" style="padding:14px 16px;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px;">
+                <div style="font-size:13px;font-weight:700;">Dataloop AB</div>
+                <span style="color:#e11d48;font-size:15px;cursor:pointer;" title="Saved">♥</span>
+              </div>
+              <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">🇸🇪 Sweden · Data &amp; AI</div>
+              <div style="font-size:20px;font-weight:800;line-height:1;margin-bottom:2px;">€5.5M</div>
+              <div style="font-size:12px;color:#16a34a;font-weight:600;margin-bottom:12px;">+44% revenue</div>
+              <div style="display:flex;gap:6px;">
+                <button onclick="show('c2-pitch')" style="flex:1;font-size:11px;font-weight:600;padding:5px 0;background:#eff6ff;color:#2563eb;border:none;border-radius:5px;cursor:pointer;font-family:inherit;">View →</button>
+                <button style="flex:1;font-size:11px;font-weight:600;padding:5px 0;background:#f0fdf4;color:#16a34a;border:none;border-radius:5px;cursor:pointer;font-family:inherit;">+ Watch</button>
+              </div>
+            </div>
+
+          </div>
         </div>
-        <div class="card" style="padding:0;overflow:hidden;">
-          <table class="data-table">
-            <thead><tr><th>Company</th><th>Country</th><th>Revenue</th><th>Growth</th><th>Data</th><th></th></tr></thead>
-            <tbody>
-              <tr>
-                <td><strong>Bizkit ApS</strong></td><td>🇩🇰 DK</td>
-                <td class="mono">€14.2M</td><td class="text-green fw-700">+31%</td>
-                <td><span class="alert-badge badge-green" style="font-size:10px;">e-conomic</span></td>
-                <td><button class="btn-primary btn-blue" onclick="show('c2-pitch')" style="font-size:11px;padding:4px 10px;">Open →</button></td>
-              </tr>
-              <tr>
-                <td><strong>Nordflex AS</strong></td><td>🇳🇴 NO</td>
-                <td class="mono">€9.7M</td><td class="text-green fw-700">+18%</td>
-                <td><span class="alert-badge badge-blue" style="font-size:10px;">Brønnøysund</span></td>
-                <td><button class="btn-outline" style="font-size:11px;padding:4px 10px;">Open →</button></td>
-              </tr>
-              <tr>
-                <td><strong>Greenform AS</strong></td><td>🇳🇴 NO</td>
-                <td class="mono">€18.4M</td><td class="text-green fw-700">+26%</td>
-                <td><span class="alert-badge badge-green" style="font-size:10px;">e-conomic</span></td>
-                <td><button class="btn-outline" style="font-size:11px;padding:4px 10px;">Open →</button></td>
-              </tr>
-              <tr>
-                <td><strong>Captura ApS</strong></td><td>🇩🇰 DK</td>
-                <td class="mono">€6.3M</td><td class="text-green fw-700">+22%</td>
-                <td><span class="alert-badge badge-green" style="font-size:10px;">e-conomic</span></td>
-                <td><button class="btn-outline" style="font-size:11px;padding:4px 10px;">Open →</button></td>
-              </tr>
-              <tr>
-                <td><strong>Solvex AB</strong></td><td>🇸🇪 SE</td>
-                <td class="mono">€7.8M</td><td class="text-green fw-700">+35%</td>
-                <td><span class="alert-badge badge-green" style="font-size:10px;">e-conomic</span></td>
-                <td><button class="btn-outline" style="font-size:11px;padding:4px 10px;">Open →</button></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+
       </div>
 
-      <!-- RIGHT: Coverage stats + quick filters -->
+      <!-- RIGHT: Activity feed + Database + Quick filters -->
       <div style="display:flex;flex-direction:column;gap:16px;">
 
-        <!-- Coverage card -->
+        <!-- Recent activity -->
+        <div class="card">
+          <div class="card-header" style="padding:14px 18px;">
+            <h4>Recent activity</h4>
+            <span style="font-size:11px;color:var(--muted);">Last 7 days</span>
+          </div>
+          <div style="padding:4px 0 8px;">
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:10px 18px;border-bottom:1px solid #f3f4f6;">
+              <span style="font-size:15px;flex-shrink:0;margin-top:1px;">📈</span>
+              <div>
+                <div style="font-size:12px;font-weight:600;color:var(--text);">Kapenta AB · Revenue +18%</div>
+                <div style="font-size:11px;color:var(--muted);">New e-conomic filing · 2 days ago</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:10px 18px;border-bottom:1px solid #f3f4f6;">
+              <span style="font-size:15px;flex-shrink:0;margin-top:1px;">⚠️</span>
+              <div>
+                <div style="font-size:12px;font-weight:600;color:var(--text);">Intellicheck AS · Ownership change</div>
+                <div style="font-size:11px;color:var(--muted);">Brønnøysund registry · 3 days ago</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:10px 18px;border-bottom:1px solid #f3f4f6;">
+              <span style="font-size:15px;flex-shrink:0;margin-top:1px;">💰</span>
+              <div>
+                <div style="font-size:12px;font-weight:600;color:var(--text);">Flexo DK · New financing event</div>
+                <div style="font-size:11px;color:var(--muted);">CVR registry · 5 days ago</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:10px 18px;border-bottom:1px solid #f3f4f6;">
+              <span style="font-size:15px;flex-shrink:0;margin-top:1px;">📄</span>
+              <div>
+                <div style="font-size:12px;font-weight:600;color:var(--text);">Solvex AB · New annual report</div>
+                <div style="font-size:11px;color:var(--muted);">e-conomic · 6 days ago</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:10px 18px;">
+              <span style="font-size:15px;flex-shrink:0;margin-top:1px;">🔔</span>
+              <div>
+                <div style="font-size:12px;font-weight:600;color:var(--text);">Dataloop AB · Revenue +44%</div>
+                <div style="font-size:11px;color:var(--muted);">New e-conomic filing · 7 days ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Database coverage -->
         <div class="card">
           <div class="card-header" style="padding:14px 18px;">
             <h4>Database coverage</h4>
             <span style="font-size:11px;color:var(--muted);">e-conomic · CVR · Brønnøysund</span>
           </div>
-          <div style="padding:16px 18px;display:flex;flex-direction:column;gap:0;">
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+          <div style="padding:14px 18px;display:flex;flex-direction:column;gap:0;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid #f3f4f6;">
               <span style="font-size:13px;color:var(--muted);">Total companies</span>
-              <span style="font-size:18px;font-weight:800;color:var(--text);">267,000</span>
+              <span style="font-size:17px;font-weight:800;color:var(--text);">267,000</span>
             </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid #f3f4f6;">
               <span style="font-size:13px;color:var(--muted);">Live e-conomic data</span>
-              <span style="font-size:18px;font-weight:800;color:#16a34a;">41,000</span>
+              <span style="font-size:17px;font-weight:800;color:#16a34a;">41,000</span>
             </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid #f3f4f6;">
               <span style="font-size:13px;color:var(--muted);">CVR / registry</span>
-              <span style="font-size:18px;font-weight:800;">226,000</span>
+              <span style="font-size:17px;font-weight:800;">226,000</span>
             </div>
-            <div style="padding:12px 0 4px;">
-              <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;">
+            <div style="padding:10px 0 4px;">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px;">
                 <span style="font-size:12px;color:var(--muted);">Avg. data freshness</span>
-                <span style="font-size:14px;font-weight:700;color:#16a34a;">2.4 months</span>
+                <span style="font-size:13px;font-weight:700;color:#16a34a;">2.4 months</span>
               </div>
               <div style="height:5px;background:#f3f4f6;border-radius:99px;overflow:hidden;">
                 <div style="width:13%;height:100%;background:#16a34a;border-radius:99px;"></div>
               </div>
               <div style="display:flex;justify-content:space-between;margin-top:4px;font-size:10px;color:#9ca3af;">
-                <span>Us · 2.4 mo</span>
-                <span>Capital IQ · 12–18 mo</span>
+                <span>Us · 2.4 mo</span><span>Capital IQ · 12–18 mo</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Quick filters card -->
+        <!-- Quick filters -->
         <div class="card">
           <div class="card-header" style="padding:14px 18px;">
             <h4>Quick filters</h4>
-            <span style="font-size:11px;color:var(--muted);">Click to run search</span>
+            <span style="font-size:11px;color:var(--muted);">Click to screen</span>
           </div>
           <div style="padding:12px 18px;display:flex;flex-direction:column;gap:8px;">
-            <button onclick="fillSearch('B2B SaaS Denmark');runSearch();"
-              style="text-align:left;padding:11px 14px;border:1px solid var(--border);border-radius:7px;background:#f9fafb;font-size:13px;cursor:pointer;font-family:inherit;font-weight:500;transition:background .12s;color:var(--text);"
+            <button onclick="show('c2-screening')"
+              style="text-align:left;padding:11px 14px;border:1px solid var(--border);border-radius:7px;background:#f9fafb;font-size:13px;cursor:pointer;font-family:inherit;font-weight:500;color:var(--text);"
               onmouseover="this.style.background='#eff6ff';this.style.borderColor='#2563eb'" onmouseout="this.style.background='#f9fafb';this.style.borderColor='var(--border)'">
               🇩🇰 B2B SaaS · Denmark · €5M+ revenue
             </button>
-            <button onclick="fillSearch('PE-backed Norway');runSearch();"
-              style="text-align:left;padding:11px 14px;border:1px solid var(--border);border-radius:7px;background:#f9fafb;font-size:13px;cursor:pointer;font-family:inherit;font-weight:500;transition:background .12s;color:var(--text);"
+            <button onclick="show('c2-screening')"
+              style="text-align:left;padding:11px 14px;border:1px solid var(--border);border-radius:7px;background:#f9fafb;font-size:13px;cursor:pointer;font-family:inherit;font-weight:500;color:var(--text);"
               onmouseover="this.style.background='#eff6ff';this.style.borderColor='#2563eb'" onmouseout="this.style.background='#f9fafb';this.style.borderColor='var(--border)'">
               🇳🇴 PE-backed · Norway · High growth
             </button>
-            <button onclick="fillSearch('Industrials Sweden');runSearch();"
-              style="text-align:left;padding:11px 14px;border:1px solid var(--border);border-radius:7px;background:#f9fafb;font-size:13px;cursor:pointer;font-family:inherit;font-weight:500;transition:background .12s;color:var(--text);"
+            <button onclick="show('c2-screening')"
+              style="text-align:left;padding:11px 14px;border:1px solid var(--border);border-radius:7px;background:#f9fafb;font-size:13px;cursor:pointer;font-family:inherit;font-weight:500;color:var(--text);"
               onmouseover="this.style.background='#eff6ff';this.style.borderColor='#2563eb'" onmouseout="this.style.background='#f9fafb';this.style.borderColor='var(--border)'">
               🇸🇪 Industrials · Sweden · €10M–50M
             </button>
-            <button onclick="show('c2-screening');"
-              style="text-align:left;padding:11px 14px;border:1px solid #bfdbfe;border-radius:7px;background:#eff6ff;font-size:13px;cursor:pointer;font-family:inherit;font-weight:600;color:#2563eb;transition:background .12s;"
+            <button onclick="show('c2-screening')"
+              style="text-align:left;padding:11px 14px;border:1px solid #bfdbfe;border-radius:7px;background:#eff6ff;font-size:13px;cursor:pointer;font-family:inherit;font-weight:600;color:#2563eb;"
               onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#eff6ff'">
               🔍 Advanced screening →
             </button>
@@ -3313,7 +3431,7 @@
   ═════════════════════════════════ -->
   <div id="page-c2-pitch" class="page" style="display:none;flex-direction:column;">
     <div class="topbar" style="background:#0f172a;border-color:#1e293b;">
-      <span style="color:#94a3b8;font-size:12px;cursor:pointer;" onclick="show('c2-search')">← Back to search</span>
+      <span style="color:#94a3b8;font-size:12px;cursor:pointer;" onclick="show('c2-search')">← Back to my companies</span>
       <h1 style="color:white;margin-left:8px;">Bizkit ApS</h1>
       <span class="chip chip-blue">CVR 38421907</span>
       <span class="chip chip-grey" style="margin-left:4px;">B2B SaaS · Denmark</span>
