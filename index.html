@@ -1331,14 +1331,31 @@
         <div style="flex:1;height:1px;background:var(--border);"></div>
       </div>
 
-      <!-- Pricing anchor -->
-      <div style="background:#f5f3ff;border:1.5px solid #c4b5fd;border-radius:8px;padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;gap:16px;">
-        <div>
-          <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:#7c3aed;letter-spacing:.5px;margin-bottom:3px;">Reference price — iLEVEL benchmark</div>
-          <div style="font-size:22px;font-weight:800;color:#4c1d95;">1,5M kr. / fund / yr</div>
+      <!-- Pricing reference -->
+      <div style="background:#f5f3ff;border:1.5px solid #c4b5fd;border-radius:8px;padding:14px 18px;margin-bottom:12px;display:flex;align-items:flex-start;gap:16px;">
+        <div style="flex-shrink:0;">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:#7c3aed;letter-spacing:.5px;margin-bottom:3px;">Reference — Cobalt benchmark</div>
+          <div style="font-size:18px;font-weight:800;color:#4c1d95;">$12k platform + $750/portco/mo</div>
         </div>
-        <div style="width:1px;height:40px;background:#c4b5fd;flex-shrink:0;"></div>
-        <div style="font-size:12px;color:#5b21b6;line-height:1.6;">iLEVEL (iCapital) charges ~$200–250k/yr for mid-market PE funds. 1,5M kr. is directionally aligned and used as a single reference price across both scenarios below.</div>
+        <div style="width:1px;min-height:40px;background:#c4b5fd;flex-shrink:0;"></div>
+        <div style="font-size:12px;color:#5b21b6;line-height:1.6;">Cobalt charges ~$12,000/yr platform fee + ~$750/portfolio company/month for PE monitoring. Our proposed model follows the same structure at a Nordic price point.</div>
+      </div>
+
+      <!-- Our pricing model -->
+      <div style="background:#ede9fe;border-radius:8px;padding:14px 18px;margin-bottom:16px;">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:#7c3aed;letter-spacing:.5px;margin-bottom:10px;">Our proposed model</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <div style="background:white;border-radius:6px;padding:12px 14px;">
+            <div style="font-size:11px;font-weight:700;color:#4c1d95;margin-bottom:2px;">Platform fee</div>
+            <div style="font-size:20px;font-weight:800;color:#4c1d95;">75.000 kr. / yr</div>
+            <div style="font-size:11px;color:#6b7280;margin-top:3px;">Per fund · annual subscription</div>
+          </div>
+          <div style="background:white;border-radius:6px;padding:12px 14px;">
+            <div style="font-size:11px;font-weight:700;color:#4c1d95;margin-bottom:2px;">Per portfolio company</div>
+            <div style="font-size:20px;font-weight:800;color:#4c1d95;">3.500 kr. / mo</div>
+            <div style="font-size:11px;color:#6b7280;margin-top:3px;">Paid annually · per connected portco</div>
+          </div>
+        </div>
       </div>
 
       <!-- Two scenarios -->
@@ -1348,18 +1365,24 @@
             <span style="font-size:10px;font-weight:700;text-transform:uppercase;color:#6b7280;letter-spacing:.5px;">Low case</span>
             <span style="font-size:10px;font-weight:700;background:#e5e7eb;color:#374151;padding:2px 8px;border-radius:99px;">🇩🇰 Denmark only</span>
           </div>
-          <div style="font-size:26px;font-weight:800;color:#374151;margin-bottom:4px;">~15M kr.</div>
-          <div style="font-size:12px;color:var(--muted);margin-bottom:10px;">10 funds × 1,5M kr.</div>
-          <div style="font-size:11px;color:#6b7280;line-height:1.6;">~20–30 qualifying Danish PE/VC funds. 10 at Year 5 = ~33–50% penetration of the Danish market.</div>
+          <div style="font-size:26px;font-weight:800;color:#374151;margin-bottom:4px;">~5M kr.</div>
+          <div style="font-size:11px;color:#6b7280;line-height:1.8;margin-bottom:8px;">
+            <div>10 funds × 75.000 kr. = 750.000 kr.</div>
+            <div>10 funds × 10 portcos × 42.000 kr. = 4.200.000 kr.</div>
+          </div>
+          <div style="font-size:11px;color:#6b7280;line-height:1.6;">~20–30 qualifying DK funds. 10 at Year 5 assumes avg. 10 connected portcos per fund.</div>
         </div>
         <div style="border:1.5px solid #16a34a;border-radius:8px;padding:16px 18px;background:#f0fdf4;">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
             <span style="font-size:10px;font-weight:700;text-transform:uppercase;color:#16a34a;letter-spacing:.5px;">High case</span>
             <span style="font-size:10px;font-weight:700;background:#dcfce7;color:#14532d;padding:2px 8px;border-radius:99px;">🌍 Full Nordic</span>
           </div>
-          <div style="font-size:26px;font-weight:800;color:#14532d;margin-bottom:4px;">~45M kr.</div>
-          <div style="font-size:12px;color:#15803d;margin-bottom:10px;">30 funds × 1,5M kr.</div>
-          <div style="font-size:11px;color:#15803d;line-height:1.6;">~80–130 qualifying Nordic funds. 30 at Year 5 = ~23–38% penetration across DK, SE, NO.</div>
+          <div style="font-size:26px;font-weight:800;color:#14532d;margin-bottom:4px;">~17M kr.</div>
+          <div style="font-size:11px;color:#15803d;line-height:1.8;margin-bottom:8px;">
+            <div>30 funds × 75.000 kr. = 2.250.000 kr.</div>
+            <div>30 funds × 12 portcos × 42.000 kr. = 15.120.000 kr.</div>
+          </div>
+          <div style="font-size:11px;color:#15803d;line-height:1.6;">~80–130 qualifying Nordic funds. 30 at Year 5 assumes avg. 12 connected portcos per fund.</div>
         </div>
       </div>
 
