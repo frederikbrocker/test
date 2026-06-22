@@ -739,41 +739,41 @@
             <div style="flex:0 0 72px;text-align:center;font-size:9px;color:#9ca3af;">⏱ 6–12 mo</div>
           </div>
 
-          <!-- Pipeline — each stage flat-left, pointed-right only -->
-          <div style="display:flex;align-items:stretch;gap:4px;">
+          <!-- Pipeline — flat-left pointed-right, overlapping with z-index so tips are visible -->
+          <div style="display:flex;align-items:stretch;">
 
             <!-- SETUP -->
-            <div style="flex:0 0 72px;background:#e5e7eb;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%);display:flex;align-items:center;justify-content:center;min-height:58px;padding:0 14px 0 6px;">
+            <div style="flex:0 0 72px;position:relative;z-index:8;background:#e5e7eb;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%);display:flex;align-items:center;justify-content:center;min-height:58px;padding:0 14px 0 6px;">
               <span style="font-size:10px;font-weight:800;color:#6b7280;letter-spacing:.5px;">SETUP</span>
             </div>
 
             <!-- TARGET SOURCING -->
-            <div style="flex:1;background:#0c1a2e;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%);display:flex;align-items:center;justify-content:center;min-height:58px;padding:0 18px 0 10px;">
+            <div style="flex:1;position:relative;z-index:7;margin-left:-14px;background:#0c1a2e;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%);display:flex;align-items:center;justify-content:center;min-height:58px;padding:0 18px 0 20px;">
               <span style="font-size:9px;font-weight:800;color:#fff;letter-spacing:.4px;text-align:center;line-height:1.5;">TARGET<br>SOURCING</span>
             </div>
 
             <!-- SCREENING -->
-            <div style="flex:1;background:#0c1a2e;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%);display:flex;align-items:center;justify-content:center;min-height:58px;padding:0 18px 0 10px;">
+            <div style="flex:1;position:relative;z-index:6;margin-left:-14px;background:#0c1a2e;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%);display:flex;align-items:center;justify-content:center;min-height:58px;padding:0 18px 0 20px;">
               <span style="font-size:9px;font-weight:800;color:#fff;letter-spacing:.4px;text-align:center;">SCREENING</span>
             </div>
 
             <!-- INVESTMENT CASE -->
-            <div style="flex:1;background:#cbd5e1;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%);display:flex;align-items:center;justify-content:center;min-height:58px;padding:0 18px 0 10px;">
+            <div style="flex:1;position:relative;z-index:5;margin-left:-14px;background:#cbd5e1;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%);display:flex;align-items:center;justify-content:center;min-height:58px;padding:0 18px 0 20px;">
               <span style="font-size:9px;font-weight:800;color:#475569;letter-spacing:.4px;text-align:center;line-height:1.5;">INVESTMENT<br>CASE</span>
             </div>
 
             <!-- DD & FINAL BID -->
-            <div style="flex:1;background:#cbd5e1;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%);display:flex;align-items:center;justify-content:center;min-height:58px;padding:0 18px 0 10px;">
+            <div style="flex:1;position:relative;z-index:4;margin-left:-14px;background:#cbd5e1;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%);display:flex;align-items:center;justify-content:center;min-height:58px;padding:0 18px 0 20px;">
               <span style="font-size:9px;font-weight:800;color:#475569;letter-spacing:.4px;text-align:center;line-height:1.5;">DD &amp;<br>FINAL BID</span>
             </div>
 
             <!-- HOLDING PERIOD -->
-            <div style="flex:1;background:#052e16;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%);display:flex;align-items:center;justify-content:center;min-height:58px;padding:0 18px 0 10px;">
+            <div style="flex:1;position:relative;z-index:3;margin-left:-14px;background:#052e16;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%);display:flex;align-items:center;justify-content:center;min-height:58px;padding:0 18px 0 20px;">
               <span style="font-size:9px;font-weight:800;color:#fff;letter-spacing:.4px;text-align:center;line-height:1.5;">HOLDING<br>PERIOD</span>
             </div>
 
             <!-- EXIT — flat rectangle, end of pipeline -->
-            <div style="flex:0 0 72px;background:#e5e7eb;border-radius:0 6px 6px 0;display:flex;align-items:center;justify-content:center;min-height:58px;">
+            <div style="flex:0 0 72px;position:relative;z-index:2;margin-left:-14px;background:#e5e7eb;border-radius:0 6px 6px 0;display:flex;align-items:center;justify-content:center;min-height:58px;padding-left:14px;">
               <span style="font-size:10px;font-weight:800;color:#6b7280;letter-spacing:.5px;">EXIT</span>
             </div>
 
