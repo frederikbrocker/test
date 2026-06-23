@@ -1824,12 +1824,18 @@
 
       <!-- Pricing anchor -->
       <div style="background:#f5f3ff;border:1.5px solid #c4b5fd;border-radius:8px;padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;gap:16px;">
-        <div>
-          <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:#7c3aed;letter-spacing:.5px;margin-bottom:3px;">Reference price — Mergermarket benchmark</div>
-          <div style="font-size:22px;font-weight:800;color:#4c1d95;">175k kr. / seat / yr</div>
+        <div style="flex-shrink:0;">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:#7c3aed;letter-spacing:.5px;margin-bottom:6px;">Seat pricing — two-tier model</div>
+          <div style="display:flex;gap:12px;align-items:baseline;">
+            <div><div style="font-size:11px;color:#7c3aed;margin-bottom:1px;">Core</div><div style="font-size:18px;font-weight:800;color:#4c1d95;">95k kr.</div></div>
+            <div style="color:#c4b5fd;font-size:14px;">/</div>
+            <div><div style="font-size:11px;color:#7c3aed;margin-bottom:1px;">Pro</div><div style="font-size:18px;font-weight:800;color:#4c1d95;">155k kr.</div></div>
+            <div style="color:#c4b5fd;font-size:14px;">/</div>
+            <div><div style="font-size:11px;color:#7c3aed;margin-bottom:1px;">Blended avg</div><div style="font-size:18px;font-weight:800;color:#4c1d95;">115k kr.</div></div>
+          </div>
         </div>
-        <div style="width:1px;height:40px;background:#c4b5fd;flex-shrink:0;"></div>
-        <div style="font-size:12px;color:#5b21b6;line-height:1.6;">Mergermarket charges 20.000–30.000 EUR/seat/yr for M&A intelligence. 175k kr. is used as a conservative reference price across both scenarios below.</div>
+        <div style="width:1px;height:50px;background:#c4b5fd;flex-shrink:0;"></div>
+        <div style="font-size:12px;color:#5b21b6;line-height:1.6;">Mergermarket charges 20.000–30.000 EUR/seat/yr for M&A intelligence. A two-tier model — Core at 95k kr. and Pro at 155k kr. — yields a blended average of 115k kr./seat used across both scenarios below.</div>
       </div>
 
       <!-- Two scenarios -->
@@ -1839,26 +1845,28 @@
             <span style="font-size:10px;font-weight:700;text-transform:uppercase;color:#6b7280;letter-spacing:.5px;">Low scenario</span>
             <span style="font-size:10px;font-weight:700;background:#e5e7eb;color:#374151;padding:2px 8px;border-radius:99px;">🇩🇰 ICP — Denmark only</span>
           </div>
-          <div style="font-size:26px;font-weight:800;color:#374151;margin-bottom:4px;">~10,5M kr.</div>
-          <div style="font-size:12px;color:var(--muted);margin-bottom:10px;">60 seats × 175k kr.</div>
-          <div style="border-top:1px solid var(--border);padding-top:10px;margin-top:2px;">
-            <div style="display:flex;justify-content:space-between;font-size:11px;color:#6b7280;margin-bottom:4px;"><span>~20 Nordic Investment Funds (DK)</span><span>3 seats avg</span></div>
-            <div style="font-size:11px;color:#9ca3af;font-style:italic;">= 60 seats × 175k kr.</div>
+          <div style="font-size:26px;font-weight:800;color:#374151;margin-bottom:4px;">~17M kr.</div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:10px;">148 seats × 115k kr.</div>
+          <div style="border-top:1px solid var(--border);padding-top:10px;margin-top:2px;display:flex;flex-direction:column;gap:3px;">
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:#6b7280;"><span>PE/VC funds — 20 firms</span><span>4 seats = 80</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:#6b7280;"><span>M&amp;A boutiques — 12 firms</span><span>4 seats = 48</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:#6b7280;"><span>Corporate banks — 4 banks</span><span>5 seats = 20</span></div>
+            <div style="font-size:11px;color:#9ca3af;font-style:italic;margin-top:2px;">= 148 seats × 115k kr.</div>
           </div>
         </div>
         <div style="border:1.5px solid #2563eb;border-radius:8px;padding:16px 18px;background:#eff6ff;">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
             <span style="font-size:10px;font-weight:700;text-transform:uppercase;color:#2563eb;letter-spacing:.5px;">High scenario</span>
-            <span style="font-size:10px;font-weight:700;background:#dbeafe;color:#1e3a5f;padding:2px 8px;border-radius:99px;">🌍 ICP + Scaling — Full Nordic</span>
+            <span style="font-size:10px;font-weight:700;background:#dbeafe;color:#1e3a5f;padding:2px 8px;border-radius:99px;">🌍 ICP + Scaling — Full Nordic · medium adoption</span>
           </div>
-          <div style="font-size:26px;font-weight:800;color:#1e3a5f;margin-bottom:4px;">~79M kr.</div>
-          <div style="font-size:12px;color:#3b82f6;margin-bottom:10px;">450 seats × 175k kr.</div>
+          <div style="font-size:26px;font-weight:800;color:#1e3a5f;margin-bottom:4px;">~73M kr.</div>
+          <div style="font-size:12px;color:#3b82f6;margin-bottom:10px;">635 seats × 115k kr.</div>
           <div style="border-top:1px solid #bfdbfe;padding-top:10px;margin-top:2px;display:flex;flex-direction:column;gap:3px;">
-            <div style="display:flex;justify-content:space-between;font-size:11px;color:#3b82f6;"><span>~80 Investment Funds (Nordic)</span><span>3 seats avg = 240</span></div>
-            <div style="display:flex;justify-content:space-between;font-size:11px;color:#3b82f6;"><span>~15 Investment Banks</span><span>4 seats avg = 60</span></div>
-            <div style="display:flex;justify-content:space-between;font-size:11px;color:#3b82f6;"><span>~20 Consultants</span><span>5 seats avg = 100</span></div>
-            <div style="display:flex;justify-content:space-between;font-size:11px;color:#3b82f6;"><span>~25 Acquisition-driven Corporates</span><span>2 seats avg = 50</span></div>
-            <div style="font-size:11px;color:#93c5fd;font-style:italic;margin-top:2px;">= 450 seats × 175k kr.</div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:#3b82f6;"><span>Investment Funds Nordic — 80 firms</span><span>5 seats = 400</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:#3b82f6;"><span>Investment Banks — 15 firms</span><span>4 seats = 60</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:#3b82f6;"><span>Consultants — 20 firms</span><span>5 seats = 100</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:#3b82f6;"><span>Acquisition-driven Corporates — 25 firms</span><span>3 seats = 75</span></div>
+            <div style="font-size:11px;color:#93c5fd;font-style:italic;margin-top:2px;">= 635 seats × 115k kr.</div>
           </div>
         </div>
       </div>
