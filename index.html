@@ -674,14 +674,29 @@
             </div>
           </div>
 
-          <!-- Connecting arrows — colored, pointing to portfolio company types -->
-          <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;margin-bottom:4px;padding:0 4px;">
-            <div style="display:flex;justify-content:center;color:#b45309;font-size:16px;">↓</div>
-            <div style="display:flex;justify-content:center;gap:6px;color:#7c3aed;font-size:16px;"><span>↙</span><span>↘</span></div>
-            <div style="display:flex;justify-content:center;gap:6px;color:#a16207;font-size:16px;"><span>↓</span><span>↘</span></div>
-            <div style="display:flex;justify-content:center;gap:6px;color:#15803d;font-size:16px;"><span>↙</span><span>↘</span></div>
-            <div></div>
-          </div>
+          <!-- Connecting arrows — SVG lines from investor types to company types -->
+          <svg style="display:block;width:100%;height:40px;margin-bottom:4px;" xmlns="http://www.w3.org/2000/svg" overflow="visible">
+            <defs>
+              <marker id="ah-amber" markerWidth="5" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,5 2.5,0 5" fill="#b45309"/></marker>
+              <marker id="ah-purple" markerWidth="5" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,5 2.5,0 5" fill="#7c3aed"/></marker>
+              <marker id="ah-gold" markerWidth="5" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,5 2.5,0 5" fill="#a16207"/></marker>
+              <marker id="ah-green" markerWidth="5" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,5 2.5,0 5" fill="#15803d"/></marker>
+            </defs>
+            <!-- Angel → Startup -->
+            <line x1="10%" y1="2" x2="15%" y2="36" stroke="#b45309" stroke-width="1.5" marker-end="url(#ah-amber)"/>
+            <!-- VC → Startup -->
+            <line x1="30%" y1="2" x2="15%" y2="36" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#ah-purple)"/>
+            <!-- VC → Growth -->
+            <line x1="30%" y1="2" x2="47%" y2="36" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#ah-purple)"/>
+            <!-- Family → Growth -->
+            <line x1="50%" y1="2" x2="47%" y2="36" stroke="#a16207" stroke-width="1.5" marker-end="url(#ah-gold)"/>
+            <!-- Family → Mature SMB -->
+            <line x1="50%" y1="2" x2="79%" y2="36" stroke="#a16207" stroke-width="1.5" marker-end="url(#ah-gold)"/>
+            <!-- PE → Growth -->
+            <line x1="70%" y1="2" x2="47%" y2="36" stroke="#15803d" stroke-width="1.5" marker-end="url(#ah-green)"/>
+            <!-- PE → Mature SMB -->
+            <line x1="70%" y1="2" x2="79%" y2="36" stroke="#15803d" stroke-width="1.5" marker-end="url(#ah-green)"/>
+          </svg>
 
           <!-- ROW 3: Portfolio company types (3 columns, left-aligned) -->
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr 40px;gap:8px;margin-bottom:16px;">
