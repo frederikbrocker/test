@@ -1661,27 +1661,58 @@
         <div style="font-size:12px;color:#5b21b6;line-height:1.6;">Cobalt avg. ~1,4M kr./fund/yr for a 10-portco fund. We price at 750k kr.</div>
       </div>
 
-      <!-- Two cases -->
+      <!-- Two scenarios — interactive sliders -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:6px;">
+
+        <!-- LOW SCENARIO -->
         <div style="border:1px solid var(--border);border-radius:8px;padding:16px 18px;background:#f9fafb;">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
-            <span style="font-size:10px;font-weight:700;text-transform:uppercase;color:#6b7280;letter-spacing:.5px;">Low case</span>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <span style="font-size:10px;font-weight:700;text-transform:uppercase;color:#6b7280;letter-spacing:.5px;">Low scenario</span>
             <span style="font-size:10px;font-weight:700;background:#e5e7eb;color:#374151;padding:2px 8px;border-radius:99px;">🇩🇰 Denmark only</span>
           </div>
-          <div style="font-size:26px;font-weight:800;color:#374151;margin-bottom:4px;">~16M kr.</div>
-          <div style="font-size:12px;color:var(--muted);margin-bottom:10px;">21 funds × 750k kr.</div>
-          <div style="font-size:11px;color:#6b7280;line-height:1.7;">TAM DK: ~105 funds (65 PE/VC/Growth Equity + 40 Buyout &amp; mid-market).<br>21 funds = ~20% fund penetration.</div>
+          <div style="background:#f3f4f6;border-radius:6px;padding:10px 12px;margin-bottom:14px;font-size:11px;color:#6b7280;line-height:1.9;">
+            <div>TAM — <strong style="color:#374151;">~105</strong> active funds <span style="color:#9ca3af;">(65 PE/VC/Growth Equity + 40 Buyout)</span></div>
+            <div>Price — <strong style="color:#374151;">750k kr.</strong> / fund / yr</div>
+          </div>
+          <div style="margin-bottom:14px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
+              <span style="font-size:11px;font-weight:700;color:#374151;">Penetration</span>
+              <span id="pm-low-pct" style="font-size:15px;font-weight:800;color:#16a34a;">20%</span>
+            </div>
+            <input type="range" id="pm-low-slider" min="1" max="50" value="20" style="width:100%;accent-color:#16a34a;cursor:pointer;" oninput="calcPM('low',this.value)">
+            <div style="display:flex;justify-content:space-between;font-size:9px;color:#9ca3af;margin-top:2px;"><span>1%</span><span>25%</span><span>50%</span></div>
+          </div>
+          <div style="border-top:1px solid var(--border);padding-top:12px;">
+            <div id="pm-low-revenue" style="font-size:28px;font-weight:800;color:#374151;margin-bottom:3px;">~16M kr.</div>
+            <div style="font-size:12px;color:var(--muted);"><span id="pm-low-funds">21</span> funds × 750k kr.</div>
+          </div>
         </div>
+
+        <!-- HIGH SCENARIO -->
         <div style="border:1.5px solid #16a34a;border-radius:8px;padding:16px 18px;background:#f0fdf4;">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
-            <span style="font-size:10px;font-weight:700;text-transform:uppercase;color:#16a34a;letter-spacing:.5px;">High case</span>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <span style="font-size:10px;font-weight:700;text-transform:uppercase;color:#16a34a;letter-spacing:.5px;">High scenario</span>
             <span style="font-size:10px;font-weight:700;background:#dcfce7;color:#14532d;padding:2px 8px;border-radius:99px;">🌍 DK + NO + SE</span>
           </div>
-          <div style="font-size:26px;font-weight:800;color:#14532d;margin-bottom:4px;">~37,5M kr.</div>
-          <div style="font-size:12px;color:#15803d;margin-bottom:10px;">50 funds × 750k kr.</div>
-          <div style="font-size:11px;color:#15803d;line-height:1.7;">TAM Nordic: ~185–275 funds (DK 40–60 · NO 45–65 · SE 100–150).<br>50 funds = ~18–27% fund penetration.</div>
+          <div style="background:#dcfce7;border-radius:6px;padding:10px 12px;margin-bottom:14px;font-size:11px;color:#14532d;line-height:1.9;">
+            <div>TAM — <strong>~230</strong> active funds <span style="color:#16a34a;">(range 185–275 · DK 50 · NO 55 · SE 125)</span></div>
+            <div>Price — <strong>750k kr.</strong> / fund / yr</div>
+          </div>
+          <div style="margin-bottom:14px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
+              <span style="font-size:11px;font-weight:700;color:#14532d;">Penetration</span>
+              <span id="pm-high-pct" style="font-size:15px;font-weight:800;color:#16a34a;">20%</span>
+            </div>
+            <input type="range" id="pm-high-slider" min="1" max="50" value="20" style="width:100%;accent-color:#16a34a;cursor:pointer;" oninput="calcPM('high',this.value)">
+            <div style="display:flex;justify-content:space-between;font-size:9px;color:#86efac;margin-top:2px;"><span>1%</span><span>25%</span><span>50%</span></div>
+          </div>
+          <div style="border-top:1px solid #bbf7d0;padding-top:12px;">
+            <div id="pm-high-revenue" style="font-size:28px;font-weight:800;color:#14532d;margin-bottom:3px;">~35M kr.</div>
+            <div style="font-size:12px;color:#16a34a;"><span id="pm-high-funds">46</span> funds × 750k kr.</div>
+          </div>
         </div>
       </div>
+
       <div style="font-size:11px;color:#6b7280;line-height:1.7;padding:10px 14px;background:#f9fafb;border-radius:6px;border:1px solid var(--border);margin-top:8px;">
         <strong style="color:#374151;">TAM definition —</strong> Active PE, Growth Equity, and Buyout funds in the target region, regardless of domicile. Includes Buyout PE (e.g. Axcel, Polaris), Growth Equity (e.g. Nordic Alpha Partners, Monterro), and mid-market funds actively managing portfolio companies across DK, NO, and SE.
       </div>
@@ -4514,6 +4545,18 @@
 </div><!-- /main -->
 
 <script>
+  function calcPM(scenario, pct) {
+    pct = parseInt(pct);
+    var tam = scenario === 'low' ? 105 : 230;
+    var funds = Math.round(tam * pct / 100);
+    var rev = funds * 750000;
+    var revM = rev / 1000000;
+    var revStr = revM >= 10 ? '~' + Math.round(revM) + 'M kr.' : '~' + revM.toFixed(1) + 'M kr.';
+    document.getElementById('pm-' + scenario + '-pct').textContent = pct + '%';
+    document.getElementById('pm-' + scenario + '-funds').textContent = funds;
+    document.getElementById('pm-' + scenario + '-revenue').textContent = revStr;
+  }
+
   function calcMI(scenario, pct) {
     pct = parseInt(pct);
     var tam = scenario === 'low' ? 300 : 1750;
